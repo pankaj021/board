@@ -13,5 +13,3 @@ class CreateBoard extends Component{
         )
     }
 }
-
-export default CreateBoard;
