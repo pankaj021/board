@@ -8,7 +8,7 @@ class CreateBoard extends Component{
     render(){
         return(
             <div>
-                CreateBoard
+                CreateBoard1
             </div>
         )
     }
