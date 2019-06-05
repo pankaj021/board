@@ -1,0 +1,72 @@
+.dd-wrap {
+    display: inline-block;
+    position: relative;
+    margin: 0 auto;
+    background: #ffffff;
+    outline: none;
+    cursor: pointer;
+    font-size: 1rem;
+    border: 1px solid rgba(0,0,0,.15);
+    border-radius: 3px;
+}
+.input-pd{
+    padding: .25rem 0.5rem;
+}
+.dd-wrap input{
+    border: none;
+    outline: none;
+    border-radius: 0 !important;
+    font-size: 1rem;
+    background-color: #ffffff;
+    color: #212529;
+    padding: 0;
+}
+.dd-wrap .input-wrp::after{
+    display: inline-block;
+    width: 0;
+    height: 0;
+    margin-left: .255em;
+    vertical-align: .255em;
+    border-top: .3em solid;
+    border-right: .3em solid transparent;
+    border-bottom: 0;
+    border-left: .3em solid transparent;
+    content: "";
+}
+.dd-wrap ul{
+    list-style-type: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+    float: left;
+    min-width: 10rem;
+    padding: .5rem 0;
+    margin: .125rem 0 0;
+    font-size: 1rem;
+    color: #212529;
+    text-align: left;
+    list-style: none;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid rgba(0,0,0,.15);
+    border-radius: .25rem;
+    max-height: 250px;
+    overflow: auto;
+}
+
+.dd-wrap ul li{
+    /* display: inline-block; */
+    display: block;
+    width: 100%;
+    clear: both;
+    font-weight: 400;
+    color: #212529;
+    text-align: inherit;
+    white-space: nowrap;
+    background-color: transparent;
+    border: 0;
+}
+.dd-wrap ul li:hover{
+    background-color: #e9ecef;
+}

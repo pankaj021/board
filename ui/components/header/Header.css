@@ -1,0 +1,9 @@
+header{
+    background-color: #2676b3;
+    color: white !important;
+    padding: 18px;
+    box-shadow: 0 2px 6px 0 rgba(0,0,0,.4);
+}
+.h-title{
+    font-size: 24px;
+}

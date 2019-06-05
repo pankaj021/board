@@ -1,0 +1,27 @@
+.dd-wrap {
+    display: inline-block;
+    position: relative;
+    padding: 3px;
+    margin: 0 auto;
+    background: #ffffff;
+    outline: none;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1rem;
+    border: 1px solid #333;
+    border-radius: 3px;
+}
+.dd-wrap select{
+    border: none;
+    outline: none;
+    border-radius: 0 !important;
+    font-size: 1rem;
+    cursor: pointer;
+    background-color: #ffffff;
+    color: #333;
+}
+.dd-wrap select option{
+    background-color: #ffffff;
+    color: #333;
+}
+
