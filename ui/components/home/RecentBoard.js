@@ -7,7 +7,7 @@ class RecentBoard extends Component{
 
     render(){
         return(
-            <div>
+            <div className='recent-board ht-inherit'>
                 RecentBoard
             </div>
         )

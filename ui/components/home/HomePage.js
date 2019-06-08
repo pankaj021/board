@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import CreateBoard from './CreateBoard';
 import RecentBoard from './RecentBoard';
+import './HomePage.css';
 
 class HomePage extends Component{
     constructor(){
@@ -9,7 +10,7 @@ class HomePage extends Component{
 
     render(){
         return(
-            <div className='home-page'>
+            <div className='home-page ht-inherit d-flex'>
                 <RecentBoard />
                 <CreateBoard/>
             </div>

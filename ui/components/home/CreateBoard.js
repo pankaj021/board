@@ -7,9 +7,11 @@ class CreateBoard extends Component{
 
     render(){
         return(
-            <div>
-                CreateBoard1
+            <div className='create-board ht-inherit'>
+                CreateBoard
             </div>
         )
     }
 }
+
+export default CreateBoard;

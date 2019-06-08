@@ -27,3 +27,12 @@ html, body, #root, .max-ht{
 .d-flex{
     display: flex;
 }
+.full-wd{
+    width: 100%;
+}
+.d-flex{
+    display: flex;
+}
+.ht-inherit{
+    height: inherit;
+}
