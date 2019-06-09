@@ -13,7 +13,7 @@ class App extends Component {
         // if(isWaiting) return <Loader loaderMsg='Loading data, please wait a minute...'/>;
         return (
             <BrowserRouter>
-                <div className='ht-inherit'>
+                <div className='max-ht'>
                     <Header/>
                     <Switch>
                         <Body>

@@ -1,0 +1,27 @@
+.btn-twin{
+    margin-left: 20px;
+}
+.toggle-button .input-label{
+    margin: 0 !important;
+}
+.btn-disabled{
+    border: 1px solid #999999 !important;
+    background-color: #cccccc !important;
+    color: #666666 !important;
+}
+.btn-yes{
+    border-radius: 3px 0px 0px 3px;
+    border: 1px solid #d00539;
+    border-right: 0;
+    background-color: #fb323c;
+    color: #ffffff
+}
+.btn-no{
+    border-radius: 0px 3px 3px 0px;
+    border: 1px solid #079628;
+    border-left: 0;
+    background-color: #28a745;
+    color: #ffffff
+}
+
+/* linear-gradient(107deg,#fb323c,#ac1017) */

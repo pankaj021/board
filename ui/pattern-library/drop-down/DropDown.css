@@ -1,27 +1,37 @@
 .dd-wrap {
-    display: inline-block;
+    display: flex;
+    align-items: center;
     position: relative;
-    padding: 3px;
+    padding: 10px;
     margin: 0 auto;
     background: #ffffff;
     outline: none;
     cursor: pointer;
     font-weight: bold;
-    font-size: 1rem;
-    border: 1px solid #333;
+    font-size: 14px;
+    border: 1px solid #d1d5da;
     border-radius: 3px;
+    line-height: 1;
 }
 .dd-wrap select{
     border: none;
     outline: none;
     border-radius: 0 !important;
-    font-size: 1rem;
+    font-size: 14px;
     cursor: pointer;
     background-color: #ffffff;
-    color: #333;
+    color: #212529;
+    width: 100%;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
 }
 .dd-wrap select option{
-    background-color: #ffffff;
-    color: #333;
+    background-color: yellow;
+    color: #212529;
+    padding: 5px;
+}
+.dd-wrap::after{
+
 }
 

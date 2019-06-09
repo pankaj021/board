@@ -10,7 +10,7 @@ class HomePage extends Component{
 
     render(){
         return(
-            <div className='home-page ht-inherit d-flex'>
+            <div className='home-page fit-space d-flex'>
                 <RecentBoard />
                 <CreateBoard/>
             </div>

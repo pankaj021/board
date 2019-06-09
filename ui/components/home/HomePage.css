@@ -1,6 +1,111 @@
+.home-page{
+    left: 5px;
+    top: 5px;
+    right: 5px;
+    bottom: 5px;
+}
 .recent-board{
-    width: 30%;
+    width: 25%;
+    border-right: 1px solid #e1e4e8 !important;
+    border-bottom: 1px solid #e1e4e8 !important;
+    background-color: #ffffff;
+    padding: 24px;
+    overflow: auto;
+}
+.recent-board h4, .create-board h4{
+    color: #FF2E63;
+    padding: 0;
+    margin: 0;
 }
 .create-board{
-    width: 70%;
+    left: 25%;
+    display: inline-flex;
+    /* align-items: center; */
+    justify-content: center;
+    bottom: 0;
+    margin-top: 48px;
+}
+.board-search{
+    height: 36px !important;
+    width: 100% !important;
+    margin: 12px 0px !important;
+}
+.board-item{
+    display: block;
+}
+.board-item a{
+    text-decoration: none;
+    color: #4b70ac;
+    font-weight: 500;
+    cursor: pointer;
+    max-width: 250px;
+}
+.board-item a:hover{
+    text-decoration: underline;
+}
+.create-board-box{
+    background-color: #fff;
+    border: 1px solid #d1d5da;
+    border-radius: 3px;
+    padding: 24px;
+    width: 60%;
+    max-height: fit-content;
+    overflow-y: auto;
+    max-width: 450px;
+}
+.board-config .input, .board-config .dropdown, .board-config .toggle-button, .board-config .explore-tip{
+    margin: 18px 0px;
+}
+.create-board-btn{
+    border-radius: 3px;
+    background-color: #4b70ac;
+    border: none;
+    position: relative;
+    width: 100%;
+    padding: 10px 18px;
+    font-size: 16px;
+    font-weight: 500;
+    text-align: center;
+    outline: 0!important;
+    color: #fff;
+    margin-top: 15px;
+}
+.explore-tip{
+    background: #ffeef860;
+    border: 1px solid #f9b3dd !important;
+    padding: 10px 15px;
+}
+.advance-setting{
+    font-weight: 500;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+@media only screen and (max-width: 1000px) {
+    .home-page{
+        display: inline-block;
+        overflow: auto;
+    }
+    .create-board, .recent-board {
+        display: block;
+        width: 70%;
+        margin: 20px auto;
+        position: relative;
+        left: unset;
+        right: unset;
+    }
+    .create-board-box{
+        width: 100%;
+        max-width: 100%;
+    }
+}
+@media only screen and (max-width: 800px) {
+    .create-board, .recent-board {
+        width: 80%;
+    }
+}
+@media only screen and (max-width: 600px) {
+    .create-board, .recent-board {
+        width: 90%;
+    }
 }

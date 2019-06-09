@@ -73,7 +73,7 @@ class AutoComplete extends Component{
         const {inputText, ddOptions, listOpen, itemlListStyle} = this.state;
         const suggestions = this.getDdList(ddOptions);
         return (
-            <div id='dd-wrp' className='dd-wrap'>
+            <div id='dd-wrp' className='auto-complete'>
                 <div id='input-wrp' className='input-wrp input-pd' onClick={this.onClickDD}>
                     <input type='text' style={ddStyle} placeholder={placeholder} value={inputText} 
                         onChange={this.onChangeInput}/>

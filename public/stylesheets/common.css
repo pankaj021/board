@@ -1,18 +1,77 @@
 body{
-    font: 16px "Gotham Rounded A", "Gotham Rounded B", "Gotham Rounded", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    background: #f5f5f5;
+    font: 14px "Gotham Rounded A", "Gotham Rounded B", "Gotham Rounded", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    background-color: linear-gradient(135deg, rgba(213, 124, 230, 0.4) 0, rgba(180, 71, 201, 0) 100%), linear-gradient(135deg, #006080 0, #009bce 100%);;
+    background-image: linear-gradient(135deg, rgba(213, 124, 230, 0.4) 0, rgba(180, 71, 201, 0) 100%), linear-gradient(135deg, #006080 0, #009bce 100%);
     -webkit-font-smoothing: antialiased;
     color: #212529;
     word-wrap: break-word;
     letter-spacing: 0.3px;
     margin: 0;
     overflow: hidden;
+    line-height: 1.5;
+    position: relative;
 }
 html, body, #root, .max-ht{
     height: 100%;
 }
+ul, li{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+button{
+    border-radius: 3px;
+    color: #ffffff;
+    background-color: #4b70ac;
+    font-size: 16px;
+    font-weight: 500;
+    padding: 6px 18px;
+    outline: 0;
+    cursor: pointer;
+}
 *,*:after, *:before {
     box-sizing: border-box;
+}
+@media only screen and (min-width: 1600px) {
+    body{
+        max-width: 1440px;
+        margin: 0 auto;
+        position: relative;
+    }
+}
+.pm-col{
+    color: #FF2E63 !important;
+}
+.sc-col{
+    color: #4b70ac !important;
+}
+.tr-col{
+    color: #212529 !important;
+}
+.warning-col{
+    background-color: #fb323c;
+}
+.pm-bg{
+    background-color: #FF2E63 !important;
+}
+.sc-bg{
+    background-color: #28a745 !important;
+}
+.tr-bg{
+    background-color: #4b70ac !important;
+}
+.link-col{
+    color: #4b70ac;
+}
+.h-font{
+    font-size: 24px;
+    font-weight: 500;
+}
+.h-1{
+    font-size: 18px;
+}
+.h-2{
+    font-size: 14px;
 }
 .txt-overflow{
     overflow: hidden;
@@ -27,12 +86,19 @@ html, body, #root, .max-ht{
 .d-flex{
     display: flex;
 }
-.full-wd{
-    width: 100%;
+.fit-space{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
 }
 .d-flex{
     display: flex;
 }
 .ht-inherit{
     height: inherit;
+}
+.align-ct{
+    align-items: center
 }

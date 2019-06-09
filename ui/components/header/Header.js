@@ -6,7 +6,7 @@ function Header() {
         <header className='header'>
             <div className=''>
                 <div className=''>
-                    <div className='h-title'>
+                    <div className='h-font'>
                         X-Board
                     </div>
                 </div>

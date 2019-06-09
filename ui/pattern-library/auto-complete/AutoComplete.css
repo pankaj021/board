@@ -1,27 +1,27 @@
-.dd-wrap {
-    display: inline-block;
+.auto-complete {
+    display: block;
     position: relative;
     margin: 0 auto;
     background: #ffffff;
     outline: none;
     cursor: pointer;
-    font-size: 1rem;
-    border: 1px solid rgba(0,0,0,.15);
+    font-size: 14px;
+    border: 1px solid #d1d5da;
     border-radius: 3px;
 }
 .input-pd{
     padding: .25rem 0.5rem;
 }
-.dd-wrap input{
+.auto-complete input{
     border: none;
     outline: none;
     border-radius: 0 !important;
-    font-size: 1rem;
+    font-size: 14px;
     background-color: #ffffff;
     color: #212529;
     padding: 0;
 }
-.dd-wrap .input-wrp::after{
+.auto-complete .input-wrp::after, .dropdown .dd-wrap::after{
     display: inline-block;
     width: 0;
     height: 0;
@@ -33,7 +33,7 @@
     border-left: .3em solid transparent;
     content: "";
 }
-.dd-wrap ul{
+.auto-complete ul{
     list-style-type: none;
     position: absolute;
     top: 100%;
@@ -43,7 +43,7 @@
     min-width: 10rem;
     padding: .5rem 0;
     margin: .125rem 0 0;
-    font-size: 1rem;
+    font-size: 14px;
     color: #212529;
     text-align: left;
     list-style: none;
@@ -55,7 +55,7 @@
     overflow: auto;
 }
 
-.dd-wrap ul li{
+.auto-complete ul li{
     /* display: inline-block; */
     display: block;
     width: 100%;
@@ -67,6 +67,6 @@
     background-color: transparent;
     border: 0;
 }
-.dd-wrap ul li:hover{
+.auto-complete ul li:hover{
     background-color: #e9ecef;
 }
