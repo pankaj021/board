@@ -25,7 +25,7 @@
     display: inline-block;
     width: 0;
     height: 0;
-    margin-left: .255em;
+    /* margin-left: .255em; */
     vertical-align: .255em;
     border-top: .3em solid;
     border-right: .3em solid transparent;

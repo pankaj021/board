@@ -1,12 +1,21 @@
 import React, { Component } from 'react';
-import {Input, DropDown, ToggleButton} from '../../pattern-library';
+import {Link} from 'react-router-dom';
+import {Input, DropDown, ToggleButton, Button} from '../../pattern-library';
+import AdvanceSetting from './AdvanceSetting';
 
 class CreateBoard extends Component{
     constructor(){
         super();
+        this.state = {isModalActive: false};
+        this.onClickExplore = this.onClickExplore.bind(this);
     }
 
+    onClickExplore(){
+        this.setState({isModalActive: true});
+    }
+    
     render(){
+        let {isModalActive} = this.state;
         return(
             <div className='create-board fit-space'>
                 <div className='create-board-box'>
@@ -20,11 +29,15 @@ class CreateBoard extends Component{
                         ]}/>
                         <ToggleButton label='Make it pubic ? '/>
                         <div className='explore-tip'>
-                            <span>You can automate and manage things better by adding more details. We suggest you to <span className='sc-col advance-setting'>Explore</span> these settings. </span>
+                            {/* <span><b>Note : </b>You can automate and manage things better by adding more details. We suggest you to <span className='sc-col setting-link' onClick={this.onClickExplore}>Explore</span> these settings. </span> */}
+                            <span><b>Note : </b>You can automate and manage things better by adding more details once board is created.</span>
                         </div>
-                        <button className='create-board-btn pm-bg'>Create Board</button>
+                        <Link to={`/boardName`} >
+                            <Button  text='Create Board' btnType='btn-pm'/>
+                        </Link>
                     </div>
                 </div>
+                <AdvanceSetting isActive={isModalActive}/>
             </div>
         )
     }

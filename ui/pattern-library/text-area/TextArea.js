@@ -1,12 +1,14 @@
 import React from 'react';
-import './TextArea.css';
+import '../input/Input.css';
 
-const TextArea = (props) => {
+const Input = (props) => {
+    const {label, className, placeholder, id, isRequired, value} = props;
     return (
-        <div>
-            TextArea
+        <div id={id} className='input'>
+            {label && <div className='h-font h-2 input-label'>{label + (isRequired ? ' *' : "" )}</div>}
+            <textarea className={'input-box ' + className} type='text' value={value} placeholder={placeholder}/>
         </div>
     )
 }
 
-export default TextArea;
+export default Input;

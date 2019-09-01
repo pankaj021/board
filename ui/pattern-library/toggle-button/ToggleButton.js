@@ -13,8 +13,8 @@ class ToggleButton extends Component{
     render(){
         const {label} = this.props;
         const btnDisabledStyle = 'btn-disabled';
-        let yesBtnStyle = 'btn-yes ';
-        let noBtnStyle = 'btn-no '
+        let yesBtnStyle = 'btn-yes btn-seletecd ';
+        let noBtnStyle = 'btn-no btn-seletecd '
         this.state.buttonSelected === 'No' ? yesBtnStyle += btnDisabledStyle : noBtnStyle += btnDisabledStyle;
         return (
             <div className='toggle-button'>

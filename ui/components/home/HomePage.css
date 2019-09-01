@@ -24,6 +24,7 @@
     justify-content: center;
     bottom: 0;
     margin-top: 48px;
+    overflow: auto;
 }
 .board-search{
     height: 36px !important;
@@ -49,38 +50,50 @@
     border-radius: 3px;
     padding: 24px;
     width: 60%;
-    max-height: fit-content;
-    overflow-y: auto;
+    height: fit-content;
     max-width: 450px;
+    max-height: 430px;
+    overflow-y: auto;
 }
 .board-config .input, .board-config .dropdown, .board-config .toggle-button, .board-config .explore-tip{
     margin: 18px 0px;
-}
-.create-board-btn{
-    border-radius: 3px;
-    background-color: #4b70ac;
-    border: none;
-    position: relative;
-    width: 100%;
-    padding: 10px 18px;
-    font-size: 16px;
-    font-weight: 500;
-    text-align: center;
-    outline: 0!important;
-    color: #fff;
-    margin-top: 15px;
 }
 .explore-tip{
     background: #ffeef860;
     border: 1px solid #f9b3dd !important;
     padding: 10px 15px;
 }
-.advance-setting{
+.setting-link{
     font-weight: 500;
     text-decoration: underline;
     cursor: pointer;
 }
-
+.advance-setting{
+    width: 450px;
+    position: relative;
+    top: 61px;
+    left: calc(100% - 455px);
+    bottom: 5px;
+    right: 0px;
+    background: #ffffff;
+    z-index: 100;
+    position: fixed;
+    float: right;
+    border: 1px solid #e1e4e8 !important;
+    padding: 24px;
+    box-shadow: 0 2px 6px 0 rgba(0,0,0,.4);
+}
+.create-board-box::-webkit-scrollbar {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 7px;
+}
+.create-board-box::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: rgba(0,0,0,.5);
+    -webkit-box-shadow: 0 0 1px rgba(255,255,255,.5);
+    box-shadow: 0 0 1px rgba(255,255,255,.5);
+}
 @media only screen and (max-width: 1000px) {
     .home-page{
         display: inline-block;
