@@ -11,6 +11,7 @@
     background: #dfe3e6;
     border-radius: 5px;
     margin-left: 12px;
+    overflow: auto;
 }
 .no-l-mg{
     margin-left: 0px;
@@ -45,5 +46,6 @@
     padding: 7px 0px;
 }
 .column-input .dd-wrap select {
-    padding: 7px 0px;
+    padding: 7px;
+    padding-right: 12px;
 }

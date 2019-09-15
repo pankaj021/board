@@ -10,16 +10,34 @@ class ColumnInput extends Component{
     render(){
         return(
             <div className='column-input'>
-                <div>
-                    <div className='addedBy'>
-                        <select>
-                            <option value="001">Test User</option>
-                            <option value="001">S Suvendirian</option>
-                            <option value="001">Testing</option>
-                            <option value="001">Thiru</option>
-                        </select>
+                <TextArea 
+                    label='Content'
+                    isRequired={true}
+                />
+                <div className='d-flex'>
+                    <div className='d-flex align-ct col-ip-dd'>
+                        <DropDown 
+                            id='addedBy'
+                            label='Added by'
+                            value=''
+                            ddOptions={[
+                                {text: "Thiru", value: '001'},
+                                {text: "pan ma", value: '001'},
+                                {text: "hareshwar", value: '001'},
+                                {text: "s suvendianan", value: '001'}
+                            ]}
+                        />
+                        <DropDown 
+                            label='Expiry date'
+                            ddOptions={[
+                                {text: "Thiru", value: '001'},
+                                {text: "pan ma", value: '001'},
+                                {text: "hareshwar", value: '001'},
+                                {text: "s suvendianan", value: '001'}
+                            ]}
+                        />
                     </div>
-                    <TextArea placeholder='Type your content here...' label='Content' />
+                    <Button text='Add' btnType='btn-sc' />
                 </div>
             </div>
         )

@@ -17,7 +17,7 @@ class App extends Component {
                     <Header/>
                     <Switch>
                         <Body>
-                            <Route exact path='/' component={HomePage}/>
+                            <Route exact path='/' component={Board}/>
                             <Route path='/:boardName' component={Board}/>
                         </Body>
                     </Switch>

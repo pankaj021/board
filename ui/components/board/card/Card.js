@@ -14,35 +14,26 @@ class Card extends Component{
         let {cardId, addedBy, content} = this.state;
         return(
             <div className='card column-input'>
-                <div className='d-flex align-ct'>
-                    <div className='testAddedByDiv'><span className='testAddedBySpan'>Thiru</span></div>
-                    : <div className='contentTest'>Hi its added by me. contact me after this.</div>
-                </div>
-                {/* <div className='d-flex'>
-                    <div className='d-flex align-ct col-ip-dd'>
-                        <DropDown 
-                            id='addedBy'
-                            label='Added by'
-                            value={addedBy}
-                            ddOptions={[
-                                {text: "Thiru", value: '001'},
-                                {text: "pan ma", value: '001'},
-                                {text: "hareshwar", value: '001'},
-                                {text: "s suvendianan", value: '001'}
-                            ]}
-                        />
-                        <DropDown 
-                            label='Expiry date'
-                            ddOptions={[
-                                {text: "Thiru", value: '001'},
-                                {text: "pan ma", value: '001'},
-                                {text: "hareshwar", value: '001'},
-                                {text: "s suvendianan", value: '001'}
-                            ]}
-                        />
+                <div className='card-head'>
+                    <div className='add-info'>added today</div>
+                    <div className='d-flex align-ct'>
+                        <img className='card-icon' src='/icons/share.svg' alt='share'/>
+                        <img className='mg-l-10 card-icon' src='/icons/edit.svg' alt='delete'/>
+                        <img className='mg-l-10 card-icon' src='/icons/delete.svg' alt='delete'/>
                     </div>
-                    <Button text='Add' btnType='btn-sc' />
-                </div> */}
+                </div>
+                <div className='card-main'>
+                    <div>
+                        <span className='f-500'>{addedBy}</span>
+                        <span className='pd-lr-5 f-500'>:</span>
+                    </div>
+                    <span className='card-content'>
+                        <span className='card-quote'>“</span>{`${content}`}<span className='card-quote'>”</span>
+                    </span>
+                </div>
+                <div className='card-extras'>
+                    <div className='card-expiry-dt'>- On Sat Sep 14</div>
+                </div>
             </div>
         )
     }
