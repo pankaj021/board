@@ -1,0 +1,31 @@
+.loader{
+    width: 60%;
+    max-width: 500px;
+    margin: 50px auto;
+    padding: 30px 20px;
+    background: white;
+    text-align: center;
+}
+
+.loader-wheel{
+    display: inline-block;
+    border: 8px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 8px solid #3498db;
+    width: 80px;
+    height: 80px;
+    margin: 20px;
+    -webkit-animation: spin 2s linear infinite; /* Safari */
+    animation: spin 2s linear infinite;
+  }
+  
+  /* Safari */
+  @-webkit-keyframes spin {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }

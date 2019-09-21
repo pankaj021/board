@@ -6,6 +6,8 @@ import ToggleButton from './toggle-button/ToggleButton';
 import Button from './button/Button';
 import DatePicker from './date-picker/DatePicker';
 import Emoji from './emoji/Emoji';
+import Error from './error/Error';
+import Loader from './loader/Loader';
 import './index.css';
 
 module.exports = {
@@ -16,5 +18,7 @@ module.exports = {
     ToggleButton,
     Button,
     DatePicker,
-    Emoji
+    Emoji,
+    Error,
+    Loader
 }

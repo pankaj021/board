@@ -1,16 +1,19 @@
 import React, {Component} from 'react';
 import {BrowserRouter, Switch, Route} from 'react-router-dom';
-import Error from './error/Error';
+import {connect} from 'react-redux';
+import {Error, Loader} from '../pattern-library';
 import Header from './header/Header';
 import Body from './Body';
 import HomePage from './home/HomePage';
 import Board from './board/Board';
 
 class App extends Component {
-    render(){
-        var {error, isWaiting} = this.props;
-        if(error) return <Error error={error}/>;
-        // if(isWaiting) return <Loader loaderMsg='Loading data, please wait a minute...'/>;
+    render() {
+        var {isLoading, isError, loadMsg, errorMsg} = this.props;
+        if (isError) 
+            return <Error errorMsg={errorMsg}/>;
+        if (isLoading) 
+            return <Loader loadMsg={loadMsg}/>;
         return (
             <BrowserRouter>
                 <div className='max-ht'>
@@ -27,4 +30,9 @@ class App extends Component {
     }
 }
 
-export default App;
+const mapStateToProps = (state) => {
+    const {isLoading, isError, loadMsg, errorMsg} = state.board;
+    return {isLoading, isError, loadMsg, errorMsg};
+}
+
+export default connect(mapStateToProps, null)(App);

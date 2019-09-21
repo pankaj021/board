@@ -117,3 +117,11 @@ img{
     width: 25px;
     cursor: pointer;
 }
+.error, .loader{
+    width: 60%;
+    max-width: 500px;
+    margin: 50px auto;
+    padding: 30px 20px;
+    background: white;
+    text-align: center;
+}

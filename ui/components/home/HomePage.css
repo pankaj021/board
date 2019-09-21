@@ -52,8 +52,8 @@
     width: 60%;
     height: fit-content;
     max-width: 450px;
-    max-height: 430px;
-    overflow-y: auto;
+    max-height: 450px;
+    /* overflow-y: auto; */
 }
 .board-config .input, .board-config .dropdown, .board-config .toggle-button, .board-config .explore-tip{
     margin: 18px 0px;

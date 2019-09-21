@@ -1,4 +1,5 @@
 var express = require('express');
+var helmet = require('helmet')
 var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
@@ -8,6 +9,7 @@ const NODE_PATH = process.cwd();
 var board = require('./routes/board');
 
 var app = express();
+app.use(helmet())
 app.set('views', path.join(NODE_PATH, '/ui/templates'));
 app.set('view engine', 'pug');
 app.use(favicon(path.join(NODE_PATH, 'public', 'icons/favicon.ico')));
