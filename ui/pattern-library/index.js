@@ -4,6 +4,8 @@ import TextArea from './text-area/TextArea';
 import AutoComplete from './auto-complete/AutoComplete';
 import ToggleButton from './toggle-button/ToggleButton';
 import Button from './button/Button';
+import DatePicker from './date-picker/DatePicker';
+import Emoji from './emoji/Emoji';
 import './index.css';
 
 module.exports = {
@@ -12,5 +14,7 @@ module.exports = {
     TextArea,
     AutoComplete,
     ToggleButton,
-    Button
+    Button,
+    DatePicker,
+    Emoji
 }

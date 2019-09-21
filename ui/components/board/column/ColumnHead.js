@@ -8,7 +8,7 @@ const ColumnHead = ({headerCol}) => {
                 <div>Helps</div>
                 <div> (3) </div>
             </div>
-            <img className='delete-icon' src='/icons/delete1.svg' alt='delete'/>
+            <img className='delete-icon' src='/icons/delete1.svg' title='Delete Column' alt='delete'/>
         </div>
     )
 }

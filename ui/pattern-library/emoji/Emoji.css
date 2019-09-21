@@ -1,0 +1,26 @@
+.emoji-wrp{
+    position: relative;
+}
+.emoji-i{
+    bottom: 0px;
+    right: 0px;
+    height: 22px !important;
+    width: 22px !important;
+    margin: 4px;
+    font-size: 25px;
+    cursor: pointer;
+} 
+.emoji-i:hover{
+    background: darkgray;
+    border-radius: 2px;
+}
+.emoji-list{
+    position: absolute;
+    top: 3px;
+    right: 0;
+    width: 300px;
+    z-index: 1000;
+    padding: 10px;
+    background: whitesmoke;
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.16), 0 0 0 1px rgba(0,0,0,0.08);
+}

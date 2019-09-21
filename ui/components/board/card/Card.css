@@ -1,6 +1,6 @@
 .card {
     margin-top: 8px;
-    font-size: 18px;
+    font-size: 16px;
 }
 .f-500{
     font-weight: 500;
@@ -38,5 +38,5 @@
     text-align: end;
     color: dimgray;
     /* font-style: italic; */
-    font-size: 16px;
+    font-size: 14px;
 }

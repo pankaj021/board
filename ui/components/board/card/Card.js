@@ -17,9 +17,9 @@ class Card extends Component{
                 <div className='card-head'>
                     <div className='add-info'>added today</div>
                     <div className='d-flex align-ct'>
-                        <img className='card-icon' src='/icons/share.svg' alt='share'/>
-                        <img className='mg-l-10 card-icon' src='/icons/edit.svg' alt='delete'/>
-                        <img className='mg-l-10 card-icon' src='/icons/delete.svg' alt='delete'/>
+                        <img className='card-icon' src='/icons/share.svg' title='share' alt='share'/>
+                        <img className='mg-l-10 card-icon' src='/icons/edit.svg' title='edit' alt='edit'/>
+                        <img className='mg-l-10 card-icon' src='/icons/delete.svg' title='delete' alt='delete'/>
                     </div>
                 </div>
                 <div className='card-main'>

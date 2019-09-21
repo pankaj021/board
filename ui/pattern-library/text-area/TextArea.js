@@ -6,7 +6,7 @@ const Input = (props) => {
     return (
         <div id={id} className='input'>
             {label && <div className='h-font h-2 input-label'>{label + (isRequired ? ' *' : "" )}</div>}
-            <textarea className={'input-box ' + className} type='text' value={value} placeholder={placeholder}/>
+            <textarea className={'input-box ' + (className || '')} type='text' value={value} placeholder={placeholder}/>
         </div>
     )
 }

@@ -7,6 +7,17 @@ html(lang='en')
     meta(http-equiv='X-UA-Compatible', content='ie=edge')
     title x-board
     link(rel='stylesheet', href='/stylesheets/common.css')
+    link(rel='stylesheet', href='//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css')
+    script(src='https://code.jquery.com/jquery-1.12.4.js')
+    script(src='https://code.jquery.com/ui/1.12.1/jquery-ui.js')
+    script.
+      $( function() {
+        $( ".datepicker" ).datepicker({ 
+          minDate: 0,
+          maxDate: "+3M +10D",
+        });
+        $( "img" ).tooltip({ show: { duration: 500 } });
+      });
   body
     .max-ht
       #root
