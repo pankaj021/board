@@ -27,5 +27,8 @@
     border: 1px solid #079628;
     background-color: #28a745;
 }
+.hide-field{
+    display: none;
+}
 
 /* linear-gradient(107deg,#fb323c,#ac1017) */
