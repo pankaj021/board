@@ -9,7 +9,7 @@ let ColumnList = ( props ) => {
         {
             props.columns.map( (column, id) => {
                 const headerCol = hColorList[ ((randomIndex + id ) % hColorList.length)];
-                return <Column key={column.columnId} index={id} column={column} headerCol={headerCol}/>
+                return <Column key={column._id} index={id} column={column} headerCol={headerCol}/>
             })
         }
     </div>

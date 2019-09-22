@@ -11,7 +11,7 @@ class Card extends Component{
     }
     
     render(){
-        let {cardId, addedBy, content} = this.state;
+        let {_id, addedby, content} = this.state;
         return(
             <div className='card column-input'>
                 <div className='card-head'>
@@ -24,7 +24,7 @@ class Card extends Component{
                 </div>
                 <div className='card-main'>
                     <div>
-                        <span className='f-500'>{addedBy}</span>
+                        <span className='added-by f-500'>{addedby}</span>
                         <span className='pd-lr-5 f-500'>:</span>
                     </div>
                     <span className='card-content'>

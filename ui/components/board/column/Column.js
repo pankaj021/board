@@ -14,7 +14,7 @@ class Column extends Component{
         let columnCss = this.props.index ? 'column' : 'column no-l-mg'
         return(
             <div className={columnCss}>
-                <ColumnHead headerCol={headerCol}/>
+                <ColumnHead headerCol={headerCol} columnName={column.columnName} cardCount={column.cards.length}/>
                 <ColumnInput />
                 <CardList cards={column.cards} headerCol={headerCol}></CardList>
             </div>

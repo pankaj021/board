@@ -1,6 +1,6 @@
 const {randomIdGenerator} = require('./helper');
 
-module.exports.Column = ({columnId, content, addedby, expiryDt}) => {
+module.exports.Card = ({columnId, content, addedby, expiryDt}) => {
     return {
         "_id": randomIdGenerator(),
         "columnId": columnId,

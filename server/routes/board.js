@@ -1,8 +1,7 @@
 var express = require('express');
 var router = express.Router();
 let {isValidBoardName} = require('../../validations/createBoardValidations');
-let {safelyCreateANewBoard} = require('../data-operations/createBoardOperations');
-let {loadBoardData} = require('../data-operations/helper');
+let {safelyCreateANewBoard, loadBoardData} = require('../data-operations/boardOperations');
 
 router.get('/', (req, res, next) => {
     res.render('index', {boardData: JSON.stringify({homeRoute: true})});
