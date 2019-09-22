@@ -40,7 +40,9 @@ app.use(function(err, req, res, next) {
   console.error("Deafult Error handler: ", err);
   // render the error page
   res.status(err.status || 500);
-  res.render('error');
+  res.render('error', {
+    boardData: JSON.stringify({message: err.message || "Internal server error"})
+  });
 });
 
 module.exports = app;

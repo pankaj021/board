@@ -4,7 +4,7 @@ import './Error.css';
 function Error({errorMsg}) {
     return (
         <div className='error'>
-            <h1>Something went wrong. Sorry...</h1>
+            <h1>Oh snap...</h1>
             <h3>{errorMsg}</h3>
         </div>
     )

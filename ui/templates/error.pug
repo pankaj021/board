@@ -1,6 +1,8 @@
 doctype html
 html(lang='en')
   head
+    script.
+      var initailBoardData = !{boardData}
     meta(charset='UTF-8')
     meta(name='viewport', content='width=device-width, initial-scale=1.0')
     meta(http-equiv='X-UA-Compatible', content='ie=edge')
@@ -10,6 +12,4 @@ html(lang='en')
   body
     .max-ht
       #root
-        .error
-          h1 Something went wrong. Sorry...
-          h3 Please try after some time.
+    script(type='text/javascript', src='/bundle/bundle.js')
