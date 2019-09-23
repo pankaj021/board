@@ -40,7 +40,7 @@ function getNewBoardInfo(reqBody, boardData) {
 
 function getBoardColumnList(boardType, boardId) {
     let columnList = [];
-    const filePath = __dirname + '/../../data/Column.json';
+    const filePath = __dirname + '/../../data/column.json';
     if(boardType === 'Standup'){
         const Column1 = Column({columnName: "Helps", boardId});
         const Column2 = Column({columnName: "Interestings", boardId});

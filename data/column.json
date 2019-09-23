@@ -214,5 +214,23 @@
       "boardId": "pS5KMxWNN48767242",
       "columnName": "Events",
       "cards": []
+   },
+   {
+      "_id": "sirCLwyMgB65215889",
+      "boardId": "IZ7n24pbj34616347",
+      "columnName": "Helps",
+      "cards": []
+   },
+   {
+      "_id": "0HKyCS3EYI89940964",
+      "boardId": "IZ7n24pbj34616347",
+      "columnName": "Interestings",
+      "cards": []
+   },
+   {
+      "_id": "L5qGYBEp2p12007537",
+      "boardId": "IZ7n24pbj34616347",
+      "columnName": "Events",
+      "cards": []
    }
 ]
