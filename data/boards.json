@@ -136,5 +136,20 @@
       "avgTime": 0,
       "frequency": 0,
       "ceateTS": "2019-09-28T11:30:29.206Z"
+   },
+   {
+      "_id": "P9pasHq6W23235135",
+      "boardName": "airty-iq",
+      "boardType": "Standup",
+      "isPublic": false,
+      "facilitators": [],
+      "columns": [
+         "U7kDnPEzZL18124780",
+         "Rv0LadI-Pl49440749",
+         "xIe_HHbNyy66067239"
+      ],
+      "avgTime": 0,
+      "frequency": 0,
+      "ceateTS": "2019-09-28T12:02:15.763Z"
    }
 ]

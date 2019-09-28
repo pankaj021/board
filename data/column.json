@@ -238,5 +238,23 @@
       "boardId": "cnwlj8H9y51739557",
       "columnName": "Action Items",
       "cards": []
+   },
+   {
+      "_id": "U7kDnPEzZL18124780",
+      "boardId": "P9pasHq6W23235135",
+      "columnName": "Helps",
+      "cards": []
+   },
+   {
+      "_id": "Rv0LadI-Pl49440749",
+      "boardId": "P9pasHq6W23235135",
+      "columnName": "Interestings",
+      "cards": []
+   },
+   {
+      "_id": "xIe_HHbNyy66067239",
+      "boardId": "P9pasHq6W23235135",
+      "columnName": "Events",
+      "cards": []
    }
 ]
