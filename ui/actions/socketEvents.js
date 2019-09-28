@@ -1,0 +1,1 @@
+export const USER_TYPING = "USER_TYPING";

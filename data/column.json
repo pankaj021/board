@@ -214,5 +214,29 @@
       "boardId": "pS5KMxWNN48767242",
       "columnName": "Events",
       "cards": []
+   },
+   {
+      "_id": "xeOSDhZHOq96608941",
+      "boardId": "cnwlj8H9y51739557",
+      "columnName": "Happy",
+      "cards": []
+   },
+   {
+      "_id": "ZhoQJRfBYS39726817",
+      "boardId": "cnwlj8H9y51739557",
+      "columnName": "Meh",
+      "cards": []
+   },
+   {
+      "_id": "xM1MVeI4Ff20303789",
+      "boardId": "cnwlj8H9y51739557",
+      "columnName": "Frowny",
+      "cards": []
+   },
+   {
+      "_id": "4sEu1oEKuq73026290",
+      "boardId": "cnwlj8H9y51739557",
+      "columnName": "Action Items",
+      "cards": []
    }
 ]
