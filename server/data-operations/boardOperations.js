@@ -83,7 +83,9 @@ function loadBoardData(boardName) {
                     let columns = data[0];
                     let cards = data[1];
                     if(!columns) throw new Error("Internal server error, no data found");
-                    boardResult.columns = getConsolidatedColumns(boardResult, columns, cards);
+                    boardResult.cards = cards.filter(item => boardResult.columns.indexOf(item.columnId) > -1)
+                    boardResult.columns = columns.filter(item => item.boardId === boardResult._id);
+                    // boardResult.columns = getConsolidatedColumns(boardResult, columns, cards);
                     resolve(boardResult);
                 })
                 .catch(err => reject(err));  

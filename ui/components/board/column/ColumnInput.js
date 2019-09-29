@@ -1,10 +1,17 @@
 import React, { Component } from 'react';
+import {connect} from 'react-redux';
+import * as socketActions from '../../../actions/socket/columnSockets';
 import {TextArea, DropDown, Button, DatePicker, Emoji} from '../../../pattern-library';
 import "./Column.css";
 
 class ColumnInput extends Component{
     constructor(){
         super();
+        this.onKeyPress = this.onKeyPress.bind(this);
+    }
+
+    onKeyPress(){
+        if(this.textAreaRef.value) this.props.userTypingHandler(this.textAreaRef.value);
     }
     
     render(){
@@ -15,6 +22,8 @@ class ColumnInput extends Component{
                         label='Content'
                         isRequired={true}
                         className='user-content'
+                        textAreaRef={ el => this.textAreaRef = el } 
+                        onKeyPressHandler={this.onKeyPress}
                     />
                     <Emoji className='content-emoji' />
                 </div>
@@ -43,4 +52,12 @@ class ColumnInput extends Component{
     }
 }
 
-export default ColumnInput;
+const mapStateToProps = null;
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        userTypingHandler: (typingMsg) => {dispatch(socketActions.userTyping(typingMsg))}
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ColumnInput);

@@ -1,8 +1,14 @@
 import React, { Component } from 'react';
+import {connect} from 'react-redux';
 import "./Column.css";
 import ColumnHead from './ColumnHead';
 import ColumnInput from './ColumnInput';
 import CardList from '../card/CardList';
+
+function getCardsByColumnId(cards, columnId) {
+    if(!cards) return [];
+    return cards.filter(card => card.columnId === columnId);
+}
 
 class Column extends Component{
     constructor(){
@@ -10,16 +16,21 @@ class Column extends Component{
     }
     
     render(){
-        const {column, headerCol} = this.props;
+        const {column, headerCol, cards} = this.props;
+        const filteredCards = getCardsByColumnId(cards, column._id)
         let columnCss = this.props.index ? 'column' : 'column no-l-mg'
         return(
             <div className={columnCss}>
                 <ColumnHead headerCol={headerCol} columnName={column.columnName} cardCount={column.cards.length}/>
                 <ColumnInput />
-                <CardList cards={column.cards} headerCol={headerCol}></CardList>
+                <CardList cards={filteredCards} headerCol={headerCol}></CardList>
             </div>
         )
     }
 }
 
-export default Column;
+const mapStateToProps = (state) => ({
+    cards: state.board.cards
+})
+
+export default connect(mapStateToProps, null)(Column);
