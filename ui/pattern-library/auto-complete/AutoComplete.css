@@ -1,5 +1,6 @@
 .auto-complete {
-    display: block;
+    position: relative;
+    /* display: block;
     position: relative;
     margin: 0 auto;
     background: #ffffff;
@@ -7,12 +8,12 @@
     cursor: pointer;
     font-size: 14px;
     border: 1px solid #d1d5da;
-    border-radius: 3px;
+    border-radius: 3px; */
 }
 .input-pd{
     padding: .25rem 0.5rem;
 }
-.auto-complete input{
+/* .auto-complete input{
     border: none;
     outline: none;
     border-radius: 0 !important;
@@ -20,7 +21,7 @@
     background-color: #ffffff;
     color: #212529;
     padding: 0;
-}
+} */
 .auto-complete .input-wrp::after, .dropdown .dd-wrap::after{
     position: absolute;
     right: 5px;
@@ -69,6 +70,6 @@
     background-color: transparent;
     border: 0;
 }
-.auto-complete ul li:hover{
-    background-color: #e9ecef;
+.auto-complete ul li:hover, .foucs-list{
+    background-color: #e9ecef !important;
 }

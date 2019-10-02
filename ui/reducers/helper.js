@@ -23,3 +23,6 @@ module.exports.getInitialBoardData = () => {
         } 
     }
 }
+module.exports.deleteAnItemFromList = (list, item) => {
+    return list.filter( listItem => listItem._id !== item._id)
+}

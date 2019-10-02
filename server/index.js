@@ -7,7 +7,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 const NODE_PATH = process.cwd();
 var board = require('./routes/board');
-var card = require('./routes/card');
+// var card = require('./routes/card');
 
 var app = express();
 app.use(helmet())
@@ -21,7 +21,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(NODE_PATH, 'public')));
 
 app.use('/', board);
-app.use('/card', card);
+// app.use('/card', card);
 
 app.use('*', (req, res, next) => {
   res.render('error');

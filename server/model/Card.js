@@ -5,7 +5,7 @@ module.exports.Card = ({columnId, content, addedby, expiryDt}) => {
         "_id": randomIdGenerator(),
         "columnId": columnId,
         "content": content,
-        "addedby": (addedby || ""),
+        "addedby": (addedby || "All"),
         "expiryDt": (expiryDt || ""),
         "addedDt": new Date(),
         "updatedDt": null

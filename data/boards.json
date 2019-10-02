@@ -151,5 +151,20 @@
       "avgTime": 0,
       "frequency": 0,
       "ceateTS": "2019-09-28T12:02:15.763Z"
+   },
+   {
+      "_id": "kqqsZ7kQh82485776",
+      "boardName": "test-aur",
+      "boardType": "Standup",
+      "isPublic": false,
+      "facilitators": [],
+      "columns": [
+         "dOr83s0JcF7194756",
+         "aKwkB55azr11251118",
+         "QsK7V25w3M86785390"
+      ],
+      "avgTime": 0,
+      "frequency": 0,
+      "ceateTS": "2019-09-29T13:09:28.081Z"
    }
 ]

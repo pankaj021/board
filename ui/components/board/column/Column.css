@@ -45,13 +45,14 @@
     align-self: flex-end;
     padding: 7px 0px;
 }
-.column-input .dd-wrap select {
+.column-input .dd-wrap select, .column-input .auto-complete input{
     padding: 7px;
     padding-right: 12px;
 }
 .user-content{
     padding-right: 30px !important;
     resize: none;
+    line-height: unset;
 }
 .content-wrp{
     position: relative;
