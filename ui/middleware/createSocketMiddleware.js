@@ -1,10 +1,10 @@
 let socketIO = require('socket.io-client');
 import * as events from '../actions/socketEvents';
+import * as actionTypes from '../actions/actionTypes';
 
 const createMySocketMiddleware = (store) => {
-    let {board} = store.getState();
     var io = socketIO('/');
-    io.emit('JOIN_ROOM', board._id);
+    io.emit('JOIN_ROOM', store.getState().board._id);
     Object.keys(events).map(socketEvent => {
         io.on(socketEvent, (socketRes) => {
             console.log("socketRes : ", socketRes);
@@ -21,10 +21,11 @@ const createMySocketMiddleware = (store) => {
             if(socketEvent){
                 io.emit(socketEvent, {
                     ...payload,
-                    roomId: board._id
+                    roomId: store.getState().board._id
                 });
                 return;
             } else {
+                if(actions.type === actionTypes.DISPLAY_BOARD_CONTENT) io.emit('JOIN_ROOM', actions.payload._id);
                 next(actions);
             }
         }

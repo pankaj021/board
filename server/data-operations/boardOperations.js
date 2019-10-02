@@ -30,6 +30,7 @@ function getNewBoardInfo(reqBody, boardData) {
             writeJson(filePath, boardData)
             .then(data => {
                 newBoardinfo.columns = columnList;  // setting entire column details after saving only id's.
+                newBoardinfo.cards = [];
                 return resolve(newBoardinfo);
             })
             .catch(err => reject(err));
