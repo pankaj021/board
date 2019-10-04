@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux';
 import boardReducer from './boardReducer';
-import columnReducer from './columnReducers';
+import userTypingReducer from './userTypingReducer';
 
 const rootReducer = combineReducers({
     board: boardReducer,
-    column: columnReducer
+    userTyping: userTypingReducer
 });
 
 export default rootReducer;

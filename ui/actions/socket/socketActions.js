@@ -1,8 +1,8 @@
 import * as events from '../socketEvents';
 
-export const userTyping = (typingMsg) => ({
+export const userTyping = ({columnId, typingMsg}) => ({
     socketEvent: events.USER_TYPING,
-    payload: {typingMsg}
+    payload: {columnId, typingMsg}
 });
 
 export const addCard = (cardReq) => ({

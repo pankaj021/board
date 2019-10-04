@@ -121,4 +121,10 @@
     .create-board, .recent-board {
         width: 90%;
     }
+    .board, header {
+        padding: 8px 12px !important;
+    }
+    .column{
+        min-width: 90vw !important;
+    }
 }

@@ -4,6 +4,7 @@
       "boardId": "FMDvpND-v74727119",
       "columnName": "Helps",
       "cards": [
+         "k1IsJcfV838419086",
          "e1LYPTpSo90317832"
       ]
    },
@@ -415,5 +416,31 @@
       "cards": [
          "j6AYxjgA861887088"
       ]
+   },
+   {
+      "_id": "mjd168rvwM38970393",
+      "boardId": "ipdIN6SCq18498055",
+      "columnName": "Helps",
+      "cards": [
+         "znZBMRoxw17746650",
+         "4CjUBNiCH2629513"
+      ]
+   },
+   {
+      "_id": "OdbCr-BrWs43841532",
+      "boardId": "ipdIN6SCq18498055",
+      "columnName": "Interestings",
+      "cards": [
+         "cx2nN8erq99800766",
+         "1tC07Obes79836186",
+         "wfZ6yLUdX78666158",
+         "C2UZkqKhy42346518"
+      ]
+   },
+   {
+      "_id": "Smu0bDvJCs96724620",
+      "boardId": "ipdIN6SCq18498055",
+      "columnName": "Events",
+      "cards": []
    }
 ]

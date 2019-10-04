@@ -32,7 +32,7 @@ class ColumnInput extends Component{
     }
 
     onKeyPress(){
-        if(this.contentNode.value) this.props.userTypingHandler(this.contentNode.value);
+        if(this.contentNode.value) this.props.userTypingHandler({columnId: this.props.columnId, typingMsg: this.contentNode.value});
     }
     
     render(){
@@ -70,6 +70,21 @@ class ColumnInput extends Component{
                             ]}
                             value={''}
                         />
+                        <AutoComplete 
+                            id='assignedTo'
+                            label='Assigned To'
+                            placeholder="All"
+                            className=''
+                            autoCompleteRef={(el) => this.assignedToNode = el}
+                            ddOptions={[
+                                {text: "All", value: 'All'},
+                                {text: "Thiru", value: '001'},
+                                {text: "pan ma", value: '001'},
+                                {text: "hareshwar", value: '001'},
+                                {text: "s suvendianan", value: '001'}
+                            ]}
+                            value={''}
+                        />
                         <DatePicker 
                             label='Expires On'
                             id='expiryDate'
@@ -88,7 +103,7 @@ const mapStateToProps = null;
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        userTypingHandler: (typingMsg) => {dispatch(socketActions.userTyping(typingMsg))},
+        userTypingHandler: (typingReq) => {dispatch(socketActions.userTyping(typingReq))},
         addCard: (cardReq) => {dispatch(socketActions.addCard(cardReq))}
     }
 }

@@ -21,7 +21,7 @@ function getSocketConnection(server) {
         })
         client.on(socketEvents.USER_TYPING, (reqBody) => {
             console.log('typingStarted event...', reqBody.roomId);
-            io.to(reqBody.roomId).emit(socketEvents.USER_TYPING, reqBody.typingMsg);
+            client.to(reqBody.roomId).emit(socketEvents.USER_TYPING, reqBody);
         });
         client.on(socketEvents.ADD_CARD, (reqBody) => {
             console.log("ADD_CARD reqBody: ", reqBody);
