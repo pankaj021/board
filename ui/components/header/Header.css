@@ -49,3 +49,6 @@ header{
 .f-logo, .h-logo, .t-logo{
     margin-right: 10px;
 }
+.setting-wrp{
+    position: relative;
+}

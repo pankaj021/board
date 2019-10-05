@@ -68,21 +68,7 @@
     text-decoration: underline;
     cursor: pointer;
 }
-.advance-setting{
-    width: 450px;
-    position: relative;
-    top: 61px;
-    left: calc(100% - 455px);
-    bottom: 5px;
-    right: 0px;
-    background: #ffffff;
-    z-index: 100;
-    position: fixed;
-    float: right;
-    border: 1px solid #e1e4e8 !important;
-    padding: 24px;
-    box-shadow: 0 2px 6px 0 rgba(0,0,0,.4);
-}
+
 .create-board-box::-webkit-scrollbar {
     -webkit-appearance: none;
     appearance: none;

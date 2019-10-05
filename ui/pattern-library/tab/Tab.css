@@ -1,0 +1,27 @@
+.tab-h-list{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 24px 0px;
+}
+.tab-component{
+    color: #000;
+}
+.tab-title{
+    border: 1px solid #fb323c;
+    border-top: none;
+    font-size: 18px;
+    font-weight: 500;
+    padding: 8px 16px;
+    text-align: center;
+    background: white;
+    color: #fb323c;
+}
+.tab-selected{
+    border: 2px solid #fb323c;
+    border-bottom: none;
+    background: white;
+    /* color: #ffffff; */
+    background: #f9b3dd;
+
+}
