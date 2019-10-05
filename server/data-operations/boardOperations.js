@@ -1,6 +1,7 @@
 let fs = require('fs');
 const {Board} = require('../model/Board');
 const {Column} = require('../model/Column');
+const {Timer} = require('../model/Timer');
 let { readJson, getIndexOfBoard, writeJson } = require('./helper');
 
 function safelyCreateANewBoard (reqBody) {
@@ -21,13 +22,17 @@ function safelyCreateANewBoard (reqBody) {
 function getNewBoardInfo(reqBody, boardData) {
     const filePath = __dirname + '/../../data/boards.json';
     const newBoardinfo = Board(reqBody);
+    // const timerInfo = Timer({boardId: newBoardinfo._id});
     return new Promise((resolve, reject) => {
         getBoardColumnList(reqBody.boardType, newBoardinfo._id)
         .then( columnList => {
             newBoardinfo.columns = columnList.map( column => column._id );
             if(!(boardData instanceof Array)) boardData = [];
             boardData.push(newBoardinfo);
-            writeJson(filePath, boardData)
+            Promise.all([
+                writeJson(filePath, boardData),
+                writeJson(filePath, boardData)
+            ])
             .then(data => {
                 newBoardinfo.columns = columnList;  // setting entire column details after saving only id's.
                 newBoardinfo.cards = [];

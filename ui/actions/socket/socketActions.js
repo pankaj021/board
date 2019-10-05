@@ -13,4 +13,14 @@ export const addCard = (cardReq) => ({
 export const deleteCard = (cardReq) => ({
     socketEvent: events.DELETE_CARD,
     payload: {card: cardReq}
+});
+
+export const timerClicked = () => ({
+    socketEvent: events.TIMER_BTN_CLICKED,
+    payload: {}
+});
+
+export const timerStopped = (cardReq) => ({
+    socketEvent: events.TIMER_STOPPED,
+    payload: {}
 })

@@ -41,6 +41,14 @@ function getSocketConnection(server) {
                 io.to(reqBody.roomId).emit(socketEvents.DELETE_CARD_ERROR, defaultError);
             });
         });
+        client.on(socketEvents.TIMER_BTN_CLICKED, (reqBody) => {
+            console.error("TIMER_BTN_CLICKED: ", reqBody);
+            io.to(reqBody.roomId).emit(socketEvents.TIMER_BTN_CLICKED);
+        });
+        client.on(socketEvents.TIMER_STOPPED, (reqBody) => {
+            console.error("TIMER_STOPPED: ", reqBody);
+            io.to(reqBody.roomId).emit(socketEvents.TIMER_STOPPED);
+        });
     })
 }
 

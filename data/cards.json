@@ -169,5 +169,32 @@
       "expiryDt": "11/1/2017",
       "addedDt": "2019-10-04T19:07:17.768Z",
       "updatedDt": null
+   },
+   {
+      "_id": "OtX-f8CuC67167915",
+      "columnId": "Smu0bDvJCs96724620",
+      "content": "Timer data is not getting stored in db, so might not be in sync on all active devices. 😏",
+      "addedby": "All",
+      "expiryDt": "",
+      "addedDt": "2019-10-05T11:35:54.948Z",
+      "updatedDt": null
+   },
+   {
+      "_id": "o_GH5YVAC33476916",
+      "columnId": "Smu0bDvJCs96724620",
+      "content": "enable and disable start/finish button accordingly. 🤓",
+      "addedby": "All",
+      "expiryDt": "",
+      "addedDt": "2019-10-05T11:38:00.977Z",
+      "updatedDt": null
+   },
+   {
+      "_id": "eToiSNgpl62473954",
+      "columnId": "mjd168rvwM38970393",
+      "content": "Data is not in sorted order of latest creation timestamp. 😎 🙏",
+      "addedby": "All",
+      "expiryDt": "",
+      "addedDt": "2019-10-05T11:39:13.586Z",
+      "updatedDt": null
    }
 ]

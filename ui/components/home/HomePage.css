@@ -111,6 +111,9 @@
         width: 100%;
         max-width: 100%;
     }
+    .timer, .facilitators{
+        display: none;
+    }
 }
 @media only screen and (max-width: 800px) {
     .create-board, .recent-board {
