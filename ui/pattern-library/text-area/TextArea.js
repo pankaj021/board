@@ -4,7 +4,7 @@ import '../input/Input.css';
 class TextArea extends React.Component {
     constructor(props){
         super();
-        this.state = {value: props.value}
+        this.state = {value: props.value || ""}
         this.onChange = this.onChange.bind(this);
     }
     
@@ -28,7 +28,7 @@ class TextArea extends React.Component {
                     ref={textAreaRef}
                     onKeyPress={onKeyPressHandler}
                     onChange={this.onChange}
-                    value={this.state.value}
+                    value={this.state.value || ""}
                 />
             </div>
         )

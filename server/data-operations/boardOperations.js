@@ -81,16 +81,20 @@ function loadBoardData(boardName) {
             if(boardData && boardIndex > -1) {
                 const columnPath = __dirname + '/../../data/column.json';
                 const cardPath = __dirname + '/../../data/cards.json';
+                const memberPath = __dirname + '/../../data/members.json';
                 let boardResult = boardData[boardIndex];
                 Promise.all([ 
                     readJson(columnPath), 
-                    readJson(cardPath)
+                    readJson(cardPath),
+                    readJson(memberPath)
                 ]).then(data => {
                     let columns = data[0];
                     let cards = data[1];
+                    let memberData = data[2] || [];
                     if(!columns) throw new Error("Internal server error, no data found");
                     boardResult.cards = cards.filter(item => boardResult.columns.indexOf(item.columnId) > -1)
                     boardResult.columns = columns.filter(item => item.boardId === boardResult._id);
+                    boardResult.members = memberData.filter(member => member.boardId === boardResult._id);
                     // boardResult.columns = getConsolidatedColumns(boardResult, columns, cards);
                     resolve(boardResult);
                 })

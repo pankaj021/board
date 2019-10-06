@@ -1,19 +1,20 @@
-{
-    "1324": [
-        {
-            "_id": "",
-            "memberName": "sonu",
-            "frequency": ""
-        },
-        {
-            "_id": "",
-            "memberName": "sonu",
-            "frequency": ""
-        },
-        {
-            "_id": "",
-            "memberName": "sonu",
-            "frequency": ""
-        }
-    ]
-}
+[
+   {
+      "_id": "1FqxQuWMU90384151",
+      "boardId": "FMDvpND-v74727119",
+      "fullName": "pankaj",
+      "nickName": "Pankaj",
+      "isPresent": true,
+      "frequency": 0,
+      "createTS": "2019-10-06T11:30:08.495Z"
+   },
+   {
+      "_id": "t520BdiGC44800681",
+      "boardId": "FMDvpND-v74727119",
+      "fullName": "ewsf",
+      "nickName": "Ewsfwras",
+      "isPresent": true,
+      "frequency": 0,
+      "createTS": "2019-10-06T11:30:22.033Z"
+   }
+]

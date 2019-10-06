@@ -1,22 +1,38 @@
 import React from 'react';
 import './Input.css';
 
-const Input = (props) => {
-    const {label, className, hasError, errorMsg, placeholder, id, isRequired, inputRef, onChangeHandler, onKeyUpHandler} = props;
-    return (
-        <div id={id} className='input'>
-            {label && <div className='h-font h-2 input-label'>{label + (isRequired ? ' *' : "" )}</div>}
-            <input 
-                ref={inputRef}
-                className={'input-box ' + (className || '')} 
-                type='text' 
-                placeholder={placeholder}
-                onChange={onChangeHandler}
-                onKeyUp={onKeyUpHandler}
-            />
-            {hasError && errorMsg && <div className='error-label'>{errorMsg}</div>}
-        </div>
-    )
+class Input extends React.Component{
+    constructor(props){
+        super();
+        this.state = {value: props.value || ""};
+        this.onChange = this.onChange.bind(this);
+    }
+    onChange(event){
+        this.setState({value: event.target.value});
+    }
+    componentWillReceiveProps(props){
+        this.setState({value: props.value});
+    }
+    render(){
+        const {label, className, hasError, errorMsg, placeholder, id, isRequired, inputRef, onChangeHandler, onKeyUpHandler, onBlurHandler} = this.props;
+        const errorClass = hasError && errorMsg ? ' visible' : ' hidden';
+        return (
+            <div id={id} className='input'>
+                {label && <div className='h-font h-2 input-label'>{label + (isRequired ? ' *' : "" )}</div>}
+                <input 
+                    ref={inputRef}
+                    className={'input-box ' + (className || '')} 
+                    type='text' 
+                    placeholder={placeholder}
+                    onChange={this.onChange}
+                    onKeyUp={onKeyUpHandler}
+                    onBlur={onBlurHandler}
+                    value={this.state.value || ""}
+                />
+                {<div className={'error-label' + errorClass}>{errorMsg || 'Some Error.'}</div>}
+            </div>
+        )
+    }
 }
 
 export default Input;

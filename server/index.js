@@ -8,6 +8,7 @@ var bodyParser = require('body-parser');
 const NODE_PATH = process.cwd();
 var board = require('./routes/board');
 // var card = require('./routes/card');
+var member = require('./routes/member');
 
 var app = express();
 app.use(helmet())
@@ -22,6 +23,7 @@ app.use(express.static(path.join(NODE_PATH, 'public')));
 
 app.use('/', board);
 // app.use('/card', card);
+app.use('/member', member);
 
 app.use('*', (req, res, next) => {
   res.render('error');

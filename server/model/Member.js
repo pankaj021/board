@@ -1,11 +1,13 @@
 const {randomIdGenerator} = require('./helper');
 
-module.exports.Column = ({boardId, name}) => {
+module.exports.Member = ({boardId, fullName, nickName}) => {
     return {
         "_id": randomIdGenerator(),
         "boardId": boardId,
-        "name": name,
+        "fullName": fullName || "All",
+        "nickName": nickName || "All",
+        "isPresent": true,
         "frequency": 0,
-        "isPresent": true
+        "createTS": new Date()
     }
 }

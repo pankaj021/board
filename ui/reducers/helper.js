@@ -1,3 +1,10 @@
+module.exports.getInitialMemberData = () => {
+    if(initailBoardData.members) {
+        return initailBoardData.members;
+    }
+    return [];
+}
+
 module.exports.getInitialBoardData = () => {
     if(initailBoardData.homeRoute) {
         return {

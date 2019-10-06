@@ -3,6 +3,7 @@ import * as socketEvents from '../actions/socketEvents';
 import {getInitialBoardData, deleteAnItemFromList} from './helper';
 
 const initState = getInitialBoardData();
+if(initState.members) delete initState.members;
 
 const boardReducer = (state = initState, action) => {
     switch (action.type) {
