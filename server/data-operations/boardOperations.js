@@ -107,6 +107,33 @@ function loadBoardData(boardName) {
     });
 }
 
+function loadAllPublicBoards() {
+    const boardPath = __dirname + '/../../data/boards.json';
+    const membersPath = __dirname + '/../../data/members.json';
+    return new Promise((resolve, reject) => {
+        Promise.all([
+            readJson(boardPath),
+            readJson(membersPath)
+        ])
+        .then((data) => {
+            let boardData = data[0] || [];
+            let memberData = data[1] || [];
+            let filteredData = boardData.filter((board) => {
+                board.noOfMembers = 0;
+                return board.isPublic;
+            });
+            memberData.forEach(member => {
+                for (let index = 0; index < filteredData.length; index++) {
+                    let board = filteredData[index];
+                    if(board._id === member.boardId) return ++board.noOfMembers;
+                }
+            });
+            resolve(filteredData);
+        })
+        .catch(reject);
+    })
+}
+
 function getConsolidatedColumns(boardResult, columns, cards) {
     let boardColumns = boardResult.columns;
     let colmunResult = [];
@@ -125,4 +152,4 @@ function getConsolidatedColumns(boardResult, columns, cards) {
     return colmunResult;
 }
 
-module.exports = {safelyCreateANewBoard, loadBoardData};
+module.exports = {safelyCreateANewBoard, loadBoardData, loadAllPublicBoards};

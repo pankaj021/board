@@ -1,24 +1,38 @@
+module.exports.getInitialPublicBoardData = () => {
+    if(initialBoardData.homeRoute) {
+        return {
+            publicBoards: initialBoardData.publicBoards,
+            showHeaderItems: false
+        }
+    }
+    return {
+        publicBoards: [],
+        showHeaderItems: !!initialBoardData._id
+    };
+}
+
+
 module.exports.getInitialMemberData = () => {
-    if(initailBoardData.members) {
-        return initailBoardData.members;
+    if(initialBoardData.members) {
+        return initialBoardData.members;
     }
     return [];
 }
 
 module.exports.getInitialBoardData = () => {
-    if(initailBoardData.homeRoute) {
+    if(initialBoardData.homeRoute) {
         return {
             isLoading: false,
             loadMsg: "",
             isError: false,
             errorMsg: ""
         }
-    } else if(!initailBoardData._id){
+    } else if(!initialBoardData._id){
         return {
             isLoading: false,
             loadMsg: "",
             isError: true,
-            errorMsg: initailBoardData.message
+            errorMsg: initialBoardData.message
         }
     } else {
         return {
@@ -26,10 +40,11 @@ module.exports.getInitialBoardData = () => {
             loadMsg: "",
             isError: false,
             errorMsg: "",
-            ...initailBoardData
+            ...initialBoardData
         } 
     }
 }
+
 module.exports.deleteAnItemFromList = (list, item) => {
     return list.filter( listItem => listItem._id !== item._id)
 }

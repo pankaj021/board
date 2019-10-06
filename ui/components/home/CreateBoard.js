@@ -54,9 +54,11 @@ class CreateBoard extends Component{
                             onChangeHandler={this.onBoardTitleChange}
                             hasError={hasError}
                             errorMsg={"Invalid name, don't use space."}
+                            value={boardName}
                         />
                         <DropDown 
                             label='Board Type' 
+                            isRequired={true}
                             ddOptions={[
                                 {text: "Standup", value: "Standup"},
                                 {text: "Retro", value: "Retro"},

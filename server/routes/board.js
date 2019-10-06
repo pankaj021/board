@@ -1,10 +1,12 @@
 var express = require('express');
 var router = express.Router();
 let {isValidBoardName} = require('../../validations/createBoardValidations');
-let {safelyCreateANewBoard, loadBoardData} = require('../data-operations/boardOperations');
+let {safelyCreateANewBoard, loadBoardData, loadAllPublicBoards} = require('../data-operations/boardOperations');
 
 router.get('/', (req, res, next) => {
-    res.render('index', {boardData: JSON.stringify({homeRoute: true})});
+    loadAllPublicBoards()
+    .then((publicBoards) => res.render('index', {boardData: JSON.stringify({homeRoute: true, publicBoards})}))
+    .catch(next); 
 });
 
 router.get('/:boardName', (req, res, next) => {

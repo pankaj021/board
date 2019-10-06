@@ -7,8 +7,9 @@ class DropDown extends Component {
         super();
     }
     render(){
-        const {ddOptions, errorText, ddStyle, label, id, isRequired, onChangeHandler, ddRef} = this.props;
+        const {ddOptions, errorMsg, ddStyle, label, id, isRequired, onChangeHandler, ddRef, hasError} = this.props;
         const optionArray = getDdOptions(ddOptions);
+        const errorClass = hasError && errorMsg ? ' visible' : ' hidden';
         return (
             <div id={id} className='dropdown'>
                 {label && <div className='h-font h-2 input-label'>{label + (isRequired ? ' *' : '')}</div>}
@@ -19,8 +20,8 @@ class DropDown extends Component {
                     >
                         {optionArray}
                     </select>
-                    {errorText && <div>{errorText}</div>}
                 </div>
+                {<div className={'error-label' + errorClass}>{errorMsg || 'Some Error.'}</div>}
             </div>
         )
     }

@@ -15,22 +15,22 @@ class Header extends React.Component {
         this.setState({settingActive: true});
     }
     render(){
-        let boardName = this.props.boardName;
+        let {boardName, showHeaderItems} = this.props;
         return (
             <header className='header'>
                 <div className='h-content'>
                     <div className='d-flex h-left-wrp'>
                         <div className='h-logo-wrp h-font mg-r-48'>
-                            <img className='h-logo' src='/icons/favicon.ico' alt='CompoZed'/>
+                            <a href='/'><img className='h-logo' src='/icons/favicon.ico' alt='CompoZed'/></a>
                             {boardName || 'X-Board'}
                         </div>
-                        <Facilators />
-                        <Timer />
+                        {showHeaderItems && <Facilators />}
+                        {showHeaderItems && <Timer />}
                     </div>
-                    <div className='setting-wrp'>
+                    {showHeaderItems && <div className='setting-wrp'>
                         <img src='/icons/setting.svg' alt='Settings' onClick={this.openSettingModal}/>
-                        <AdvanceSetting isActive={this.state.settingActive}/>
-                    </div>
+                        <AdvanceSetting isActive={this.state.settingActive && showHeaderItems}/>
+                    </div>}
                 </div>
             </header>
         )
@@ -40,7 +40,10 @@ class Header extends React.Component {
 const mapStateToProps = (state) => {
     let {boardName} = state.board;
     if(boardName) boardName = boardName.charAt(0).toLocaleUpperCase() + boardName.slice(1);
-    return {boardName};
+    return {
+        boardName,
+        showHeaderItems: state.home.showHeaderItems
+    };
 }
 
 export default connect(mapStateToProps, null)(Header);

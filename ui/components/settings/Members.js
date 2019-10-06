@@ -17,7 +17,7 @@ class Members extends Component{
         let {isValid, fullNameMsg, nickNameMsg} = validateMemberDetails(this.fullName.value, this.nickName.value, this.props.members);
         if(isValid){
             this.props.addANewMember({
-                "boardId": this.props.boardId || initailBoardData._id,
+                "boardId": this.props.boardId || initialBoardData._id,
                 "fullName": this.fullName.value.trim(), 
                 "nickName": this.nickName.value.trim()
             })

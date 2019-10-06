@@ -446,5 +446,23 @@
          "o_GH5YVAC33476916",
          "OtX-f8CuC67167915"
       ]
+   },
+   {
+      "_id": "9yXWUHB9uv8960234",
+      "boardId": "iCMMU5J9O98117906",
+      "columnName": "Helps",
+      "cards": []
+   },
+   {
+      "_id": "uiid5H9YIy76531392",
+      "boardId": "iCMMU5J9O98117906",
+      "columnName": "Interestings",
+      "cards": []
+   },
+   {
+      "_id": "GS2ke9SjAn36225365",
+      "boardId": "iCMMU5J9O98117906",
+      "columnName": "Events",
+      "cards": []
    }
 ]

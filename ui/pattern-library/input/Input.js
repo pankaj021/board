@@ -8,7 +8,7 @@ class Input extends React.Component{
         this.onChange = this.onChange.bind(this);
     }
     onChange(event){
-        this.setState({value: event.target.value});
+        this.setState({value: event.target.value}, this.props.onChangeHandler);
     }
     componentWillReceiveProps(props){
         this.setState({value: props.value});

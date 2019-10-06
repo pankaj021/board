@@ -3,7 +3,7 @@
       "_id": "FMDvpND-v74727119",
       "boardName": "test",
       "boardType": "Standup",
-      "isPublic": false,
+      "isPublic": true,
       "facilitators": [],
       "columns": [
          "KZ5DA751pA85049672",
@@ -274,5 +274,20 @@
       "avgTime": 0,
       "frequency": 0,
       "ceateTS": "2019-10-02T19:38:53.038Z"
+   },
+   {
+      "_id": "iCMMU5J9O98117906",
+      "boardName": "new-board",
+      "boardType": "Standup",
+      "isPublic": true,
+      "facilitators": [],
+      "columns": [
+         "9yXWUHB9uv8960234",
+         "uiid5H9YIy76531392",
+         "GS2ke9SjAn36225365"
+      ],
+      "avgTime": 0,
+      "frequency": 0,
+      "ceateTS": "2019-10-06T17:38:40.533Z"
    }
 ]
