@@ -105,13 +105,6 @@ button{
 .align-ct{
     align-items: center
 }
-.close-icon{
-    position: absolute;
-    right: 10px;
-    top: 5px;
-    cursor: pointer;
-    color: #fb323c;
-}
 img{
     height: 25px;
     width: 25px;
@@ -124,4 +117,7 @@ img{
     padding: 30px 20px;
     background: white;
     text-align: center;
+}
+.mg-r-8{
+    margin-right: 8px;
 }

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
 import {Input, DropDown, ToggleButton, Button} from '../../pattern-library';
-import AdvanceSetting from './AdvanceSetting';
+// import AdvanceSetting from './AdvanceSetting';
 import * as boardActions from '../../actions/async/boardActions';
 import {isValidBoardName} from '../../../validations/createBoardValidations';
 
@@ -54,9 +54,11 @@ class CreateBoard extends Component{
                             onChangeHandler={this.onBoardTitleChange}
                             hasError={hasError}
                             errorMsg={"Invalid name, don't use space."}
+                            value={boardName}
                         />
                         <DropDown 
                             label='Board Type' 
+                            isRequired={true}
                             ddOptions={[
                                 {text: "Standup", value: "Standup"},
                                 {text: "Retro", value: "Retro"},
@@ -79,7 +81,7 @@ class CreateBoard extends Component{
                         </Link>
                     </div>
                 </div>
-                <AdvanceSetting isActive={isModalActive}/>
+                {/* <AdvanceSetting isActive={isModalActive}/> */}
             </div>
         )
     }

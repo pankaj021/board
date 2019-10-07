@@ -4,11 +4,7 @@ import "./Column.css";
 import ColumnHead from './ColumnHead';
 import ColumnInput from './ColumnInput';
 import CardList from '../card/CardList';
-
-function getCardsByColumnId(cards, columnId) {
-    if(!cards) return [];
-    return cards.filter(card => card.columnId === columnId);
-}
+import {getCardsByColumnId} from './helper';
 
 class Column extends Component{
     constructor(){
@@ -17,12 +13,12 @@ class Column extends Component{
     
     render(){
         const {column, headerCol, cards} = this.props;
-        const filteredCards = getCardsByColumnId(cards, column._id)
+        const filteredCards = getCardsByColumnId(cards, column._id);
         let columnCss = this.props.index ? 'column' : 'column no-l-mg'
         return(
             <div className={columnCss}>
-                <ColumnHead headerCol={headerCol} columnName={column.columnName} cardCount={column.cards.length}/>
-                <ColumnInput />
+                <ColumnHead headerCol={headerCol} columnName={column.columnName} columnId={column._id}/>
+                <ColumnInput columnId={column._id}/>
                 <CardList cards={filteredCards} headerCol={headerCol}></CardList>
             </div>
         )

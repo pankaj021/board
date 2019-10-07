@@ -1,10 +1,16 @@
 import { combineReducers } from 'redux';
 import boardReducer from './boardReducer';
-import columnReducer from './columnReducers';
+import userTypingReducer from './userTypingReducer';
+import timerReducer from './timerReducer';
+import memberReducer from './memberReducer';
+import publicBoardReducer from './publicBoardReducer';
 
 const rootReducer = combineReducers({
     board: boardReducer,
-    column: columnReducer
+    userTyping: userTypingReducer,
+    timer: timerReducer,
+    members: memberReducer,
+    home: publicBoardReducer
 });
 
 export default rootReducer;

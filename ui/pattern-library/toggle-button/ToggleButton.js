@@ -17,11 +17,12 @@ class ToggleButton extends Component{
         this.setState({value: this.state.buttonSelected});
     }
     render(){
-        const {label, onClickHandler, toggleBtnRef} = this.props;
+        const {label, onClickHandler, toggleBtnRef, hasError, errorMsg} = this.props;
         const btnDisabledStyle = 'btn-disabled';
         let yesBtnStyle = 'btn-yes btn-seletecd ';
         let noBtnStyle = 'btn-no btn-seletecd '
         this.state.buttonSelected === "true" ? noBtnStyle += btnDisabledStyle : yesBtnStyle += btnDisabledStyle; 
+        const errorClass = hasError && errorMsg ? ' visible' : ' hidden';        
         return (
             <div className='toggle-button'>
                 <div className='d-flex align-ct'>
@@ -38,6 +39,7 @@ class ToggleButton extends Component{
                         <button className={noBtnStyle} onClick={this.toggleBtnStyle}>No</button>
                     </div>
                 </div>
+                {<div className={'error-label' + errorClass}>{errorMsg || 'Some Error.'}</div>}
             </div>
         )
     }

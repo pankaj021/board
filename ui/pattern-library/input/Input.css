@@ -3,6 +3,7 @@
 .input-label{
     margin-bottom: 5px;
     font-size: 12px;
+    white-space: nowrap;
 }
 .input-box{
     width: 100%;
@@ -30,4 +31,10 @@ textarea:focus, input:focus, .dd-wrap:focus-within, button:focus{
     margin-top: 5px;
     font-size: 12px;
     color: #fb323c;
+}
+.visible{
+    visibility: visible;
+}
+.hidden{
+    visibility: hidden;
 }

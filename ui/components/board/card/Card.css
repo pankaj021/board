@@ -23,8 +23,8 @@
     color: dimgray;
 }
 .card-icon{
-    height: 18px;
-    width: 18px;
+    height: 15px;
+    width: 15px;
 }
 .mg-l-10{
     margin-left: 10px;
@@ -32,7 +32,7 @@
 .card-main{
     display: flex;
     align-items: flex-start;
-    padding: 8px 0;
+    padding: 5px 0;
 }
 .added-by{
     white-space: nowrap;
@@ -42,4 +42,7 @@
     color: dimgray;
     /* font-style: italic; */
     font-size: 14px;
+}
+.card-extras{
+    margin-bottom: 5px;
 }

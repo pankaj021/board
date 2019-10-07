@@ -16,6 +16,7 @@
     color: #FF2E63;
     padding: 0;
     margin: 0;
+    margin-bottom: 18px;
 }
 .create-board{
     left: 25%;
@@ -32,7 +33,10 @@
     margin: 12px 0px !important;
 }
 .board-item{
-    display: block;
+    display: flex;
+    justify-content: space-between;
+    margin: 8px;
+    align-items: center;
 }
 .board-item a{
     text-decoration: none;
@@ -56,33 +60,20 @@
     /* overflow-y: auto; */
 }
 .board-config .input, .board-config .dropdown, .board-config .toggle-button, .board-config .explore-tip{
-    margin: 18px 0px;
+    /* margin: 18px 0px; */
 }
 .explore-tip{
     background: #ffeef860;
     border: 1px solid #f9b3dd !important;
     padding: 10px 15px;
+    margin-bottom: 18px !important;
 }
 .setting-link{
     font-weight: 500;
     text-decoration: underline;
     cursor: pointer;
 }
-.advance-setting{
-    width: 450px;
-    position: relative;
-    top: 61px;
-    left: calc(100% - 455px);
-    bottom: 5px;
-    right: 0px;
-    background: #ffffff;
-    z-index: 100;
-    position: fixed;
-    float: right;
-    border: 1px solid #e1e4e8 !important;
-    padding: 24px;
-    box-shadow: 0 2px 6px 0 rgba(0,0,0,.4);
-}
+
 .create-board-box::-webkit-scrollbar {
     -webkit-appearance: none;
     appearance: none;
@@ -111,6 +102,9 @@
         width: 100%;
         max-width: 100%;
     }
+    .timer, .facilitators{
+        display: none;
+    }
 }
 @media only screen and (max-width: 800px) {
     .create-board, .recent-board {
@@ -121,4 +115,24 @@
     .create-board, .recent-board {
         width: 90%;
     }
+    .board, header {
+        padding: 8px 12px !important;
+    }
+    .column{
+        min-width: 90vw !important;
+    }
+}
+
+#publicBoard{
+    margin-bottom: 18px;
+}
+
+#publicBoard .error-label{
+    display: none;
+}
+.member-count-i{
+    width: 16px;
+    height: 16px;
+    margin-right: 8px;
+    cursor: auto;
 }

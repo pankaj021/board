@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import {Input, DropDown, ToggleButton} from '../../pattern-library';
+import './AdvanceSetting.css';
+import Members from './Members';
+import {Tab, TabItem} from '../../pattern-library';
 
 class AdvanceSetting extends Component{
     constructor(props){
@@ -18,11 +20,15 @@ class AdvanceSetting extends Component{
         if(!isActive) return null;
         return(
             <aside className='advance-setting fit-space'>
-                <div className='h-font close-icon' title='close' onClick={this.closeModal}>X</div>
-                <h4 className='h-font h-1'>Advance Setting</h4>
-                <h3>
-                    Not availble at the moment.
-                </h3>
+                <div className='h-font close-icon' title='close' onClick={this.closeModal}>Close</div>
+                {/* <h4 className='h-font h-1 h-setting'>Advance Setting</h4> */}
+                <Tab defaultTabIndex={0}>
+                    <TabItem tabTitle='Add Column'>Add Column</TabItem>
+                    <TabItem tabTitle='Members'>
+                        <Members />
+                    </TabItem>
+                    <TabItem tabTitle='Others'>Others</TabItem>
+                </Tab>
             </aside>
         )
     }

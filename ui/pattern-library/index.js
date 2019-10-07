@@ -8,6 +8,9 @@ import DatePicker from './date-picker/DatePicker';
 import Emoji from './emoji/Emoji';
 import Error from './error/Error';
 import Loader from './loader/Loader';
+import TypingIcon from './typing-icon/TypingIcon';
+import Tab from './tab/Tab';
+import TabItem from './tab/TabItem';
 import './index.css';
 
 module.exports = {
@@ -20,5 +23,8 @@ module.exports = {
     DatePicker,
     Emoji,
     Error,
-    Loader
+    Loader,
+    TypingIcon,
+    Tab,
+    TabItem
 }

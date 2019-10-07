@@ -1,44 +1,64 @@
 import React, { Component } from 'react';
+import {connect} from 'react-redux';
 import {Input} from '../../pattern-library';
 
-class RecentBoard extends Component{
-    constructor(){
-        super();
+function getFilteredBoard(publicBoards) {
+    if(publicBoards.length){
+        return (
+            publicBoards.map((board, index) => (
+                <li key={index} className='board-item'>
+                    <a href={board.boardName} className='txt-overflow'>
+                        {board.boardName}
+                    </a>
+                    <div className='d-flex align-ct'>
+                        <img className='member-count-i' src='/icons/users.svg' alt='members'/>
+                        <span>({board.noOfMembers})</span>
+                    </div>
+                </li>
+            ))
+        )
     }
+    return <li>No board found.</li>
+}
 
+class RecentBoard extends Component{
+    constructor(props){
+        super();
+        this.state = {publicBoards: props.publicBoards, typedValue: ""};
+        this.onTypeBoardName = this.onTypeBoardName.bind(this);
+    }
+    onTypeBoardName(){
+        let typedValue = this.searchBoardNode.value || "";
+        typedValue = typedValue.trim();
+        let filteredBoards = this.props.publicBoards.filter(board => board.boardName.toLowerCase().includes(typedValue.toLowerCase()));
+        this.setState({
+            typedValue,
+            publicBoards: filteredBoards
+        })
+    }
     render(){
-        const publicBoards = [
-            "Lab-bengaluru",
-            "lab-ani",
-            "google-stand-up",
-            "personal-tracker",
-            "Yulu-Team-Standup",
-            "Yatra-retro",
-            "last-trip",
-            'board-tracker',
-            "Lab-bengaluru",
-            "lab-ani",
-            "google-stand-up",
-            "personal-tracker",
-            "Yulu-Team-Standup",
-            "Yatra-retro",
-            "last-trip",
-            "Yatra-retro",
-            "last-trip",
-            'board-tracker'
-        ]
+        const publicBoards = this.state.publicBoards;
         return(
             <aside className='recent-board fit-space'>
-                <h4 className='h-font h-1'>Public Boards</h4>
-                <Input label='' className='board-search' placeholder='Find a board...'/>
+                <h4 className='h-font h-1'>{`Public Boards (${publicBoards.length}) `}</h4>
+                <Input 
+                    id='publicBoard'
+                    label=''
+                    placeholder='Find a board...'
+                    className='board-search'
+                    inputRef={(el) => this.searchBoardNode = el}
+                    onChangeHandler={this.onTypeBoardName}
+                    value={this.state.typedValue}
+                />
                 <ul>
-                    {
-                        publicBoards.map((boardName, index) => <li key={index} className='board-item'><a href={boardName} className='txt-overflow'>{boardName}</a></li>)
-                    }
+                    {getFilteredBoard(publicBoards)}
                 </ul>
             </aside>
         )
     }
 }
 
-export default RecentBoard;
+const mapStateToProps = (state) => ({
+    publicBoards: state.home.publicBoards
+})
+export default connect(mapStateToProps, null)(RecentBoard);
