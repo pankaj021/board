@@ -73,3 +73,12 @@
 .auto-complete ul li:hover, .foucs-list{
     background-color: #e9ecef !important;
 }
+.hide-list{
+    display: none;
+}
+.show-list{
+    display: inline-block;
+}
+.auto-input-wrp{
+    position: relative;
+}

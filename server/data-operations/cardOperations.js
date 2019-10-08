@@ -69,4 +69,25 @@ function deleteFromColumn(columnData, columnId, cardId) {
     }
 }
 
-module.exports = {addANewCard, deleteACard};
+function updateCard(card) {
+    if(!card.addedBy) card.addedBy = 'All';
+    return new Promise((resolve, reject) => {
+        const cardPath = __dirname + '/../../data/cards.json';
+        readJson(cardPath)
+        .then(data => {
+            let cardData = data ? data : [];
+            for (let index = 0; index < cardData.length; index++) {
+                if(cardData[index]._id === card._id) {
+                    cardData[index] = card;
+                    break;
+                }
+            }
+            writeJson(cardPath, cardData)
+            .then( data => resolve(card))
+            .catch(err => reject(err));
+        })
+        .catch(err => reject(err));
+    })
+}
+
+module.exports = {addANewCard, deleteACard, updateCard};

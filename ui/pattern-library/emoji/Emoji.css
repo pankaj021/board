@@ -27,3 +27,9 @@
 .hide-field{
     display: none;
 }
+.hide-list{
+    display: none;
+}
+.show-list{
+    display: inline-block;
+}

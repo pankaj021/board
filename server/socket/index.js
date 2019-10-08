@@ -1,5 +1,5 @@
 var socketIO = require('socket.io');
-const {addANewCard, deleteACard} = require('../data-operations/cardOperations');
+const {addANewCard, deleteACard, updateCard} = require('../data-operations/cardOperations');
 const socketEvents = require('../../ui/actions/socketEvents');
 
 function getSocketConnection(server) {
@@ -30,6 +30,15 @@ function getSocketConnection(server) {
             .catch(err => {
                 console.error("ADD_CARD Error: ", err);
                 io.to(reqBody.roomId).emit(socketEvents.ADD_CARD_ERROR, defaultError);
+            });
+        });
+        client.on(socketEvents.UPDATE_CARD, (reqBody) => {
+            console.log("UPDATE_CARD reqBody: ", reqBody);
+            updateCard(reqBody.card)
+            .then(card => io.to(reqBody.roomId).emit(socketEvents.UPDATE_CARD_SUCCESS, {status: 200, card}))
+            .catch(err => {
+                console.error("UPDATE_CARD Error: ", err);
+                io.to(reqBody.roomId).emit(socketEvents.UPDATE_CARD_ERROR, defaultError);
             });
         });
         client.on(socketEvents.DELETE_CARD, (reqBody) => {

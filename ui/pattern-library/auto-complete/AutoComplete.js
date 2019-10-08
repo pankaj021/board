@@ -5,9 +5,8 @@ class AutoComplete extends Component{
     constructor(props){
         super();
         this.state = {
-            value:  props.selectedItem || "",
+            value:  props.selectedItem || props.value || "",
             ddOptions: props.ddOptions,
-            listOpen: false,
             itemlListStyle: {}
         };
         this.keyUpDownCount = 0
@@ -16,16 +15,30 @@ class AutoComplete extends Component{
         this.onClickDD = this.onClickDD.bind(this);
         this.selectItem = this.selectItem.bind(this);
         this.onKeyDown = this.onKeyDown.bind(this);
+        this.showList = this.showList.bind(this);
+        this.removeList = this.removeList.bind(this);
     }
 
     getMaxHeight(){
+        console.log('max height', Math.min(window.innerHeight * .45 , 250));
         return Math.min(window.innerHeight * .45 , 250);
     }
 
+    removeList(){
+        this.suggestionList.classList.remove('show-list');
+        this.suggestionList.classList.add('hide-list');
+    }
+
+    showList(){
+        this.suggestionList.classList.remove('hide-list');
+        this.suggestionList.classList.add('show-list');
+    }
+
     componentDidMount(){
-        document.addEventListener('click', (event) => { 
-            this.setState({listOpen: false});         
-        })
+        document.addEventListener('click', (event) => this.suggestionList && this.removeList())
+    }
+    componentWillReceiveProps(props){
+        this.setState({value: props.value});
     }
     componentWillUnmount(){
         document.removeEventListener("click", () => {});
@@ -35,13 +48,13 @@ class AutoComplete extends Component{
         const targetVal = event.target.value;
         let ddOptions = this.props.ddOptions;
         if(targetVal.length) ddOptions = this.props.ddOptions.filter(option => option.text.toUpperCase().includes(targetVal.toUpperCase()))
-        this.setState({value: event.target.value, ddOptions, listOpen: true});
+        this.showList();
+        this.setState({value: event.target.value, ddOptions});
     }
 
     onKeyDown(event){
-        const {ddOptions, listOpen} = this.state;
-        if(!listOpen) return; //do nothing;
-        if(event.key === 'Enter') return this.setState({listOpen: false}); // close the suggestion list.
+        const {ddOptions} = this.state;
+        if(event.key === 'Enter') return this.removeList(); // close the suggestion list.
         if(event.key === 'ArrowUp' || event.key === 'ArrowDown') {
             const selectItem = ddOptions[this.keyUpDownCount]['text'];
             let liCollection = this.suggestionList.children;
@@ -61,17 +74,27 @@ class AutoComplete extends Component{
         event.stopPropagation();
         event.nativeEvent.stopImmediatePropagation();
         const rect = event.target.getBoundingClientRect();
+        const suggestions = this.getDdList(this.props.ddOptions);
+
         let itemlListStyle = {
-            ...this.state.itemlListStyle, 
-            transform: `translate(0px, 0px)`,
-            top: '100%',
-            maxHeight: this.getMaxHeight()
+            top: "unset",
+            maxHeight: this.getMaxHeight(),
+            bottom: '36px',
+            left: 0,
+            right: 0,
         };
-        if(rect.top >= ( window.innerHeight / 2 )){
-            itemlListStyle.transform = `translate(0px, -${this.getMaxHeight() + 4}px)`;
-            itemlListStyle.top = '0px';
-        }
-        this.setState({listOpen: !this.state.listOpen, ddOptions: this.props.ddOptions, itemlListStyle});
+        // if(rect.top >= ( window.innerHeight / 2 )){
+        //     itemlListStyle = {
+        //         top: "unset",
+        //         maxHeight: this.getMaxHeight(),
+        //         bottom: "35px",
+        //         left: 0,
+        //         right: 0,
+        //     }
+        // }
+        if(this.suggestionList.classList.contains('hide-list')) this.showList();
+        else this.removeList();
+        this.setState({ddOptions: this.props.ddOptions, itemlListStyle});
     }
 
     selectItem(selectedItem){
@@ -94,24 +117,28 @@ class AutoComplete extends Component{
 
     render(){
         const {errorText, placeholder, label, isRequired, id, className, autoCompleteRef} = this.props;
-        const {value, ddOptions, listOpen, itemlListStyle} = this.state;
+        const {value, ddOptions, itemlListStyle} = this.state;
         const suggestions = this.getDdList(ddOptions);
+        console.log('auto complete render');
         return (
             <div id={id} className='auto-complete' >
                 {label && <div className='h-font h-2 input-label'>{label + (isRequired ? ' *' : "" )}</div>}
-                <input 
-                    type='text' 
-                    className={'input-box ' + (className || '')} 
-                    placeholder={placeholder} 
-                    ref={autoCompleteRef}
-                    value={value}
-                    onChange={this.onChangeInput}
-                    onKeyDown={this.onKeyDown}
-                    onClick={this.onClickDD}
-                />
-                { listOpen && suggestions.length ? <ul ref={(el) => this.suggestionList = el} style={itemlListStyle}>
-                    {suggestions}
-                </ul> : null}
+                <div className='auto-input-wrp'>
+                    <input 
+                        type='text' 
+                        className={'input-box ' + (className || '')} 
+                        placeholder={placeholder} 
+                        ref={autoCompleteRef}
+                        value={value}
+                        onChange={this.onChangeInput}
+                        onKeyDown={this.onKeyDown}
+                        onClick={this.onClickDD}
+                    />
+                    { suggestions.length ? 
+                        <ul className='hide-list' ref={(el) => this.suggestionList = el} style={itemlListStyle}>
+                        {suggestions}
+                    </ul> : null}
+                </div>
                 {/* {errorText && <div>{errorText}</div>} */}
             </div>
         )

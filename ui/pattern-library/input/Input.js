@@ -16,6 +16,7 @@ class Input extends React.Component{
     render(){
         const {label, className, hasError, errorMsg, placeholder, id, isRequired, inputRef, onChangeHandler, onKeyUpHandler, onBlurHandler} = this.props;
         const errorClass = hasError && errorMsg ? ' visible' : ' hidden';
+        console.log('input render');
         return (
             <div id={id} className='input'>
                 {label && <div className='h-font h-2 input-label'>{label + (isRequired ? ' *' : "" )}</div>}
