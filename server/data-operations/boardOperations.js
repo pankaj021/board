@@ -3,6 +3,7 @@ const {Board} = require('../model/Board');
 const {Column} = require('../model/Column');
 const {Timer} = require('../model/Timer');
 let { readJson, getIndexOfBoard, writeJson } = require('./helper');
+let {getFacilitatorList} = require('./facilitatorOperations');
 
 function safelyCreateANewBoard (reqBody) {
     const { boardName } = reqBody;
@@ -95,7 +96,7 @@ function loadBoardData(boardName) {
                     boardResult.cards = cards.filter(item => boardResult.columns.indexOf(item.columnId) > -1)
                     boardResult.columns = columns.filter(item => item.boardId === boardResult._id);
                     boardResult.members = memberData.filter(member => member.boardId === boardResult._id);
-                    // boardResult.columns = getConsolidatedColumns(boardResult, columns, cards);
+                    boardResult.facilitators = getFacilitatorList(boardData.facilitators, boardResult.members, 2);
                     resolve(boardResult);
                 })
                 .catch(err => reject(err));  

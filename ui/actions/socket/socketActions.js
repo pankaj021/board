@@ -27,3 +27,8 @@ export const timerStopped = (cardReq) => ({
     socketEvent: events.TIMER_STOPPED,
     payload: {}
 })
+
+export const notPresent = (reqData) => ({
+    socketEvent: events.NOT_PRESENT,
+    payload: reqData
+})

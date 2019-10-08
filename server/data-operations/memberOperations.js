@@ -10,8 +10,10 @@ function addANewMember(reqBody) {
         .then(data => {
             let memberData = data ? data : [];
             let findData = memberData.filter(member => (
-                member.fullName.toLowerCase() === reqBody.fullName.toLowerCase() || 
-                member.nickName.toLowerCase() === reqBody.nickName.toLowerCase()
+                member.boardId === reqBody.boardId && (
+                    member.fullName.toLowerCase() === reqBody.fullName.toLowerCase() || 
+                    member.nickName.toLowerCase() === reqBody.nickName.toLowerCase()
+                )
             ))
             if(findData.length) return reject(new Error('Member already exists'));
             memberData.push(newMember);
