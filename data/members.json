@@ -1,14 +1,5 @@
 [
    {
-      "_id": "hx0t84Ag_25652516",
-      "boardId": "FMDvpND-v74727119",
-      "fullName": "Sonu Dhaniwal",
-      "nickName": "Sonu",
-      "isPresent": true,
-      "frequency": 0,
-      "createTS": "2019-10-06T17:33:21.030Z"
-   },
-   {
       "_id": "76-4kY53r67828115",
       "boardId": "FMDvpND-v74727119",
       "fullName": "Pankaj Maurya",
@@ -34,5 +25,14 @@
       "isPresent": true,
       "frequency": 0,
       "createTS": "2019-10-06T17:33:57.837Z"
+   },
+   {
+      "_id": "xZrMVeuLu85215401",
+      "boardId": "FMDvpND-v74727119",
+      "fullName": "Sonu Dhariwal",
+      "nickName": "Sonu",
+      "isPresent": true,
+      "frequency": 0,
+      "createTS": "2019-10-07T16:41:40.807Z"
    }
 ]
