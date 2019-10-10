@@ -48,3 +48,25 @@ module.exports.getInitialBoardData = () => {
 module.exports.deleteAnItemFromList = (list, item) => {
     return list.filter( listItem => listItem._id !== item._id)
 }
+
+module.exports.updateItemInList = (list, item) => {
+    return list.map( listItem => {
+        if(listItem._id === item._id) return {...item, isEdited: false};
+        return listItem;
+    })
+}
+
+module.exports.editAnItemInList = (list, item) => {
+    return list.map( listItem => {
+        if(listItem._id === item._id) return {...item, isEdited: true};
+        return listItem;
+    })
+}
+
+module.exports.cancelEditFromList = (list, item) => {
+    return list.map( listItem => {
+        if(listItem._id === item._id) return {...listItem, isEdited: false};
+        return listItem;
+    })
+}
+

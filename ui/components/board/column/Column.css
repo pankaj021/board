@@ -63,3 +63,16 @@
     bottom: 0px;
     right: 0px;
 }
+.cancel-edit{
+    background: white !important;
+    color: #4b70ac;
+    border: 2px solid #4b70ac;
+    padding: 5px !important;
+    margin-left: 10px;
+}
+.cancel-edit:hover{
+    background: aliceblue !important;
+}
+.user-content{
+    max-height: none !important;
+}

@@ -4,7 +4,7 @@ import './Emoji.css';
 class Emoji extends React.Component{
     constructor(props){
         super();
-        this.state = {isActive: false, emojiValue: ""};
+        this.state = {emojiValue: ""};
         this.getEmojiList = this.getEmojiList.bind(this);
         this.onClickEmojiIcon = this.onClickEmojiIcon.bind(this);
         this.handleEmojiListDisplay = this.handleEmojiListDisplay.bind(this);
@@ -14,7 +14,10 @@ class Emoji extends React.Component{
 
     componentDidMount(){
         document.addEventListener('click', () => {
-            this.setState({isActive: false});
+            if(this.emojiListNode) {
+                this.emojiListNode.classList.remove('show-list');
+                this.emojiListNode.classList.add('hide-list');
+            }
         });
     }
 
@@ -50,8 +53,8 @@ class Emoji extends React.Component{
     onClickEmojiIcon(event){
         event.stopPropagation();
         event.nativeEvent.stopImmediatePropagation();
-        if(this.state.isActive) return null;
-        this.setState({isActive: true});
+        this.emojiListNode.classList.remove('hide-list');
+        this.emojiListNode.classList.add('show-list');
     }
 
     render(){
@@ -67,9 +70,9 @@ class Emoji extends React.Component{
                 />
                 <img className={'emoji-i ' + (className || '') } src='/icons/emoji.svg' alt='emoji' onClick={this.onClickEmojiIcon}/>
                 {
-                    this.state.isActive && 
                     <span 
-                        className='emoji-list' 
+                        ref={(el) => {this.emojiListNode = el}} 
+                        className='emoji-list hide-list' 
                         onClick={this.handleEmojiListDisplay}
                     >
                         {this.getEmojiList()} 

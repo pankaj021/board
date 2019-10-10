@@ -1,14 +1,18 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import * as socketActions from '../../../actions/socket/socketActions';
+import * as cardActions from '../../../actions/sync/cardActions';
+
 import {TextArea, DropDown, Button, DatePicker, Emoji, AutoComplete} from '../../../pattern-library';
 import {getElementValue} from './helper';
 import "./Column.css";
+const defaultState = {content: "", addedBy: "", expiryDt: "", assignedTo: ""};
 
 class ColumnInput extends Component{
-    constructor(){
+    constructor(props){
         super();
-        this.state = {textAreaContent: ""}
+        let initialState = props.content ? props : defaultState;
+        this.state = {...initialState};
         this.onKeyPress = this.onKeyPress.bind(this);
         this.onClickAddCard = this.onClickAddCard.bind(this);
         this.onSelectEmojiCallBack = this.onSelectEmojiCallBack.bind(this);
@@ -17,18 +21,22 @@ class ColumnInput extends Component{
     onClickAddCard(){
         const columnId = this.props.columnId;
         const content = getElementValue(this.contentNode);
-        const addedby = getElementValue(this.addedByNode);
+        const addedBy = getElementValue(this.addedByNode);
         const expiryDt = getElementValue(this.expiryNode);
-        this.contentNode.value = '';
-        this.addedByNode.value = '';
-        this.expiryNode.value = '';
-        if(content.trim()) this.props.addCard({columnId, content, addedby, expiryDt});
+        const assignedTo = getElementValue(this.assignedToNode) || null;
+        const {addCard, updateCard, btnText, _id, isEdited} = this.props;
+        if(content.trim()) {
+            this.expiryNode.value = '';
+            if(isEdited) updateCard({columnId, content, addedBy, expiryDt, assignedTo, _id});
+            else addCard({columnId, content, addedBy, expiryDt, assignedTo});
+            this.setState({...defaultState});
+        }
         else this.contentNode && this.contentNode.focus();   
     }
 
     onSelectEmojiCallBack(emojiValue){
         let allContent = this.contentNode.value + ' ' + emojiValue;
-        this.setState({textAreaContent: allContent});
+        this.setState({content: allContent});
     }
 
     onKeyPress(){
@@ -36,6 +44,8 @@ class ColumnInput extends Component{
     }
     
     render(){
+        let {content, addedBy, expiryDt, assignedTo} = this.state;
+        let btnText = this.props.btnText || 'Add';
         return(
             <div className='column-input'>
                 <div className='content-wrp'>
@@ -45,7 +55,7 @@ class ColumnInput extends Component{
                         className='user-content'
                         textAreaRef={ el => this.contentNode = el } 
                         onKeyPressHandler={this.onKeyPress}
-                        value={this.state.textAreaContent}
+                        value={content}
                     />
                     <Emoji 
                         className='content-emoji' 
@@ -68,9 +78,9 @@ class ColumnInput extends Component{
                                 {text: "hareshwar", value: '001'},
                                 {text: "s suvendianan", value: '001'}
                             ]}
-                            value={''}
+                            value={addedBy || ""}
                         />
-                        <AutoComplete 
+                        {/* <AutoComplete 
                             id='assignedTo'
                             label='Assigned To'
                             placeholder="All"
@@ -83,16 +93,22 @@ class ColumnInput extends Component{
                                 {text: "hareshwar", value: '001'},
                                 {text: "s suvendianan", value: '001'}
                             ]}
-                            value={''}
-                        />
+                            value={assignedTo || ""}
+                        /> */}
                         <DatePicker 
                             label='Expires On'
                             id='expiryDate'
                             dateRef={ el => this.expiryNode = el } 
-                            value={""}
+                            value={expiryDt || ''}
                         />
                     </div>
-                    <Button text='Add' btnType='btn-sc' onClickHandler={this.onClickAddCard}/>
+                    <Button text={btnText} btnType='btn-sc' onClickHandler={this.onClickAddCard}/>
+                    {
+                        this.props.isEdited &&
+                        <Button text='Cancel' className='cancel-edit' btnType='btn-tr' 
+                            onClickHandler={() => {this.props.cancelEdit({_id: this.props._id})}}
+                        />
+                    }
                 </div>
             </div>
         )
@@ -104,7 +120,9 @@ const mapStateToProps = null;
 const mapDispatchToProps = (dispatch) => {
     return {
         userTypingHandler: (typingReq) => {dispatch(socketActions.userTyping(typingReq))},
-        addCard: (cardReq) => {dispatch(socketActions.addCard(cardReq))}
+        addCard: (cardReq) => {dispatch(socketActions.addCard(cardReq))},
+        updateCard: (cardReq) => {dispatch(socketActions.updateCard(cardReq))},
+        cancelEdit: (cardReq) => {dispatch(cardActions.cancelEdit(cardReq))}
     }
 }
 

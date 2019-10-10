@@ -9,7 +9,10 @@ export const addCard = (cardReq) => ({
     socketEvent: events.ADD_CARD,
     payload: {card: cardReq}
 });
-
+export const updateCard = (cardReq) => ({
+    socketEvent: events.UPDATE_CARD,
+    payload: {card: cardReq}
+});
 export const deleteCard = (cardReq) => ({
     socketEvent: events.DELETE_CARD,
     payload: {card: cardReq}
@@ -23,4 +26,9 @@ export const timerClicked = () => ({
 export const timerStopped = (cardReq) => ({
     socketEvent: events.TIMER_STOPPED,
     payload: {}
+})
+
+export const notPresent = (reqData) => ({
+    socketEvent: events.NOT_PRESENT,
+    payload: reqData
 })

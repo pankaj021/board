@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import * as socketActions from '../../../actions/socket/socketActions';
+import * as cardActions from '../../../actions/sync/cardActions';
 import {TextArea, DropDown, Button} from '../../../pattern-library';
 import './Card.css';
 
@@ -18,7 +19,7 @@ class Card extends Component{
     }
     
     render(){
-        let {_id, addedby, content, expiryDt} = this.state; 
+        let {_id, addedBy, content, expiryDt} = this.state; 
         let expiresOnTxt = expiryDt ? '- On ' + new Date(expiryDt).toDateString() : "";
         return(
             <div className='card column-input'>
@@ -26,7 +27,9 @@ class Card extends Component{
                     <div className='add-info'>added today</div>
                     <div className='d-flex align-ct'>
                         <img className='card-icon' src='/icons/share.svg' title='share' alt='share'/>
-                        <img className='mg-l-10 card-icon' src='/icons/edit.svg' title='edit' alt='edit'/>
+                        <img className='mg-l-10 card-icon' src='/icons/edit.svg' title='edit' alt='edit'
+                            onClick={() => this.props.editCard(this.state)}
+                        />
                         <img className='mg-l-10 card-icon' src='/icons/delete.svg' title='delete' alt='delete' 
                             onClick={() => this.props.deleteCard(this.state)}
                         />
@@ -34,7 +37,7 @@ class Card extends Component{
                 </div>
                 <div className='card-main'>
                     <div>
-                        <span className='added-by f-500'>{firstLetterUpperCase(addedby)}</span>
+                        <span className='added-by f-500'>{firstLetterUpperCase(addedBy)}</span>
                         <span className='pd-lr-5 f-500'>:</span>
                     </div>
                     <span className='card-content'>
@@ -50,7 +53,8 @@ class Card extends Component{
 }
 
 const mapDispatchToProps = (dispatch) => ({
-    deleteCard: (card) => dispatch(socketActions.deleteCard(card))
+    deleteCard: (card) => dispatch(socketActions.deleteCard(card)),
+    editCard: (card) => dispatch(cardActions.editCard(card))
 })
 
 export default connect(null, mapDispatchToProps)(Card);

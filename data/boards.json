@@ -4,7 +4,24 @@
       "boardName": "test",
       "boardType": "Standup",
       "isPublic": true,
-      "facilitators": [],
+      "facilitators": [
+         {
+            "_id": "76-4kY53r67828115",
+            "boardId": "FMDvpND-v74727119",
+            "fullName": "Pankaj Maurya",
+            "nickName": "Pankaj",
+            "isPresent": true,
+            "frequency": 2,
+            "createTS": "2019-10-06T17:33:27.993Z"
+         },
+         {
+            "_id": "000000000000",
+            "fullName": "Nobody Present",
+            "nickName": "Nobody",
+            "isPresent": true,
+            "frequency": 0
+         }
+      ],
       "columns": [
          "KZ5DA751pA85049672",
          "lQl8Bh7cgh70067723",
@@ -188,7 +205,18 @@
       "boardName": "try",
       "boardType": "Normal",
       "isPublic": true,
-      "facilitators": [],
+      "facilitators": [
+         {
+            "_id": "KTou9Nqf541866829",
+            "boardId": "yOCSlLvqn61449153",
+            "fullName": "Jhelu mehre",
+            "nickName": "Jhelu",
+            "isPresent": true,
+            "frequency": 0,
+            "createTS": "2019-10-07T17:57:41.430Z"
+         },
+         "Nobody"
+      ],
       "columns": [
          "TwKRILnYBg53655910",
          "WdCYGYqdXf11012171",

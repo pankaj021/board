@@ -1,5 +1,6 @@
 var socketIO = require('socket.io');
-const {addANewCard, deleteACard} = require('../data-operations/cardOperations');
+const {addANewCard, deleteACard, updateCard} = require('../data-operations/cardOperations');
+const {updateFacilitatorList} = require('../data-operations/facilitatorOperations');
 const socketEvents = require('../../ui/actions/socketEvents');
 
 function getSocketConnection(server) {
@@ -32,6 +33,15 @@ function getSocketConnection(server) {
                 io.to(reqBody.roomId).emit(socketEvents.ADD_CARD_ERROR, defaultError);
             });
         });
+        client.on(socketEvents.UPDATE_CARD, (reqBody) => {
+            console.log("UPDATE_CARD reqBody: ", reqBody);
+            updateCard(reqBody.card)
+            .then(card => io.to(reqBody.roomId).emit(socketEvents.UPDATE_CARD_SUCCESS, {status: 200, card}))
+            .catch(err => {
+                console.error("UPDATE_CARD Error: ", err);
+                io.to(reqBody.roomId).emit(socketEvents.UPDATE_CARD_ERROR, defaultError);
+            });
+        });
         client.on(socketEvents.DELETE_CARD, (reqBody) => {
             console.log("DELETE_CARD reqBody: ", reqBody);
             deleteACard(reqBody.card)
@@ -48,6 +58,15 @@ function getSocketConnection(server) {
         client.on(socketEvents.TIMER_STOPPED, (reqBody) => {
             console.error("TIMER_STOPPED: ", reqBody);
             io.to(reqBody.roomId).emit(socketEvents.TIMER_STOPPED);
+        });
+        client.on(socketEvents.NOT_PRESENT, (reqBody) => {
+            console.log("NOT_PRESENT reqBody: ", reqBody);
+            updateFacilitatorList(reqBody)
+            .then(facilitators => io.to(reqBody.roomId).emit(socketEvents.NOT_PRESENT_SUCCESS, {status: 200, facilitators}))
+            .catch(err => {
+                console.error("UPDATE_CARD Error: ", err);
+                io.to(reqBody.roomId).emit(socketEvents.NOT_PRESENT_ERROR, defaultError);
+            });
         });
     })
 }

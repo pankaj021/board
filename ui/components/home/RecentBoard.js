@@ -7,9 +7,12 @@ function getFilteredBoard(publicBoards) {
         return (
             publicBoards.map((board, index) => (
                 <li key={index} className='board-item'>
-                    <a href={board.boardName} className='txt-overflow'>
-                        {board.boardName}
-                    </a>
+                    <div className='d-flex align-ct'>
+                        <a href={board.boardName} className='txt-overflow'>
+                            {` ${board.boardName}`}
+                        </a>
+                        {/* <span className='mg-l-10'>{`(${board.boardType.toLowerCase()} )`}</span> */}
+                    </div>
                     <div className='d-flex align-ct'>
                         <img className='member-count-i' src='/icons/users.svg' alt='members'/>
                         <span>({board.noOfMembers})</span>

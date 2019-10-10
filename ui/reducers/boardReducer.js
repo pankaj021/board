@@ -1,6 +1,6 @@
 import * as actions from '../actions/actionTypes';
 import * as socketEvents from '../actions/socketEvents';
-import {getInitialBoardData, deleteAnItemFromList} from './helper';
+import {getInitialBoardData, deleteAnItemFromList, editAnItemInList, updateItemInList, cancelEditFromList} from './helper';
 
 const initState = getInitialBoardData();
 if(initState.members) delete initState.members;
@@ -44,6 +44,26 @@ const boardReducer = (state = initState, action) => {
             return {
                 ...state,
                 cards: deleteAnItemFromList(state.cards, action.payload.card)
+            };
+        case actions.EDIT_CARD:
+            return {
+                ...state,
+                cards: editAnItemInList(state.cards, action.payload.card)
+            };
+        case actions.CANCEL_EDIT_CARD:
+            return {
+                ...state,
+                cards: cancelEditFromList(state.cards, action.payload.card)
+            };
+        case socketEvents.UPDATE_CARD_SUCCESS:
+            return {
+                ...state,
+                cards: updateItemInList(state.cards, action.payload.card)
+            };
+            case socketEvents.NOT_PRESENT_SUCCESS:
+            return {
+                ...state,
+                facilitators: action.payload.facilitators
             };
         default:
             return state;
