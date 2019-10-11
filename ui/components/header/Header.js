@@ -27,9 +27,9 @@ class Header extends React.Component {
                         {showHeaderItems && <Facilators />}
                         {showHeaderItems && <Timer />}
                     </div>
-                    {showHeaderItems && <div className='setting-wrp'>
+                    {boardName && <div className='setting-wrp'>
                         <img src='/icons/setting.svg' alt='Settings' onClick={this.openSettingModal}/>
-                        <AdvanceSetting isActive={this.state.settingActive && showHeaderItems}/>
+                        <AdvanceSetting isActive={this.state.settingActive && boardName}/>
                     </div>}
                 </div>
             </header>

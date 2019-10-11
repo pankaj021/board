@@ -35,6 +35,7 @@ class CreateBoard extends Component{
         if(isValidBoardName(this.state.boardName)) {
             this.props.createANewBoard({...this.state});
         } else {
+            this.boardNameInput.focus();
             this.setState({hasError: true});
         }
     }

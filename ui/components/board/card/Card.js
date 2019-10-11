@@ -26,7 +26,7 @@ class Card extends Component{
                 <div className='card-head'>
                     <div className='add-info'>added today</div>
                     <div className='d-flex align-ct'>
-                        <img className='card-icon' src='/icons/share.svg' title='share' alt='share'/>
+                        <img className='card-icon' src='/icons/share-new1.svg' title='share' alt='share'/>
                         <img className='mg-l-10 card-icon' src='/icons/edit.svg' title='edit' alt='edit'
                             onClick={() => this.props.editCard(this.state)}
                         />

@@ -4,7 +4,7 @@ import ColumnList from './column/ColumnList';
 
 const Board = ({columns}) => {
     return(
-        <div className='max-ht board' style={{padding: "16px 24px"}}>
+        <div className='max-ht board' style={{padding: "16px 0px"}}>
             <ColumnList columns={columns}/>
         </div>
     )

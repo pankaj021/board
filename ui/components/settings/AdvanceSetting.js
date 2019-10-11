@@ -23,11 +23,11 @@ class AdvanceSetting extends Component{
                 <div className='h-font close-icon' title='close' onClick={this.closeModal}>Close</div>
                 {/* <h4 className='h-font h-1 h-setting'>Advance Setting</h4> */}
                 <Tab defaultTabIndex={0}>
-                    <TabItem tabTitle='Add Column'>Add Column</TabItem>
                     <TabItem tabTitle='Members'>
                         <Members />
                     </TabItem>
-                    <TabItem tabTitle='Others'>Others</TabItem>
+                    <TabItem tabTitle='Add Column'>Not available yet.</TabItem>
+                    <TabItem tabTitle='Others'>Not available yet.</TabItem>
                 </Tab>
             </aside>
         )
