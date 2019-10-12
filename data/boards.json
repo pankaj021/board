@@ -4,6 +4,7 @@
       "boardName": "test",
       "boardType": "Standup",
       "isPublic": true,
+      "isActive": true,
       "facilitators": [
          {
             "_id": "76-4kY53r67828115",
@@ -28,8 +29,9 @@
          "1IskoAp7CH75705136"
       ],
       "avgTime": 0,
-      "frequency": 0,
-      "ceateTS": "2019-09-22T08:06:04.140Z"
+      "frequency": 46,
+      "ceateTS": "2019-09-22T08:06:04.140Z",
+      "startedAt": "2019-10-12T12:39:03.132Z"
    },
    {
       "_id": "MI3LjC0tq7933569",

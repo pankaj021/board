@@ -65,3 +65,6 @@ header{
     height: 20px;
     width: 20px;
 }
+.timer-val{
+    white-space: nowrap;
+}

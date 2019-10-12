@@ -7,7 +7,7 @@ class Timer extends React.Component{
     constructor(props){
         super();
         this.stopId = '';
-        this.defaultState = {...props, isDelayed: false};
+        this.defaultState = {...props, isDelayed: props.isDelayed === true ? true : false};
         this.state = {...this.defaultState};
         this.formatWatchTime = this.formatWatchTime.bind(this);
         this.handleStopWatch = this.handleStopWatch.bind(this);
@@ -15,6 +15,10 @@ class Timer extends React.Component{
         this.downCounting = this.downCounting.bind(this);
         this.counter = this.counter.bind(this);
         this.clearTimer = this.clearTimer.bind(this);
+    }
+
+    componentDidMount(){
+        this.handleStopWatch();
     }
 
     componentWillReceiveProps(receiveProps){
@@ -77,7 +81,7 @@ class Timer extends React.Component{
 
     clearTimer(){
         clearInterval(this.stopId);
-        this.setState({...this.defaultState});
+        this.setState({...this.props.initailValue, isDelayed: false, timerSarted: false, timerStopped: true});
     }
 
     doubleDigit(param){
@@ -102,7 +106,7 @@ class Timer extends React.Component{
                 </span>
                 <span className='timer-text d-flex align-ct'>
                     <span style={{ fontSize: '22px', paddingRight: this.state.isDelayed ? '5px' : '0px'}}>{this.state.isDelayed ? ' - ' : " "}</span>
-                    <span> { this.formatWatchTime() } </span>
+                    <span className='timer-val'> { this.formatWatchTime() } </span>
                     <Button 
                         text={timerBtnText ||"Let's Start"} 
                         btnType='btn-pm' 

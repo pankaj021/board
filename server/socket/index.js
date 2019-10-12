@@ -1,6 +1,7 @@
 var socketIO = require('socket.io');
 const {addANewCard, deleteACard, updateCard, shareCard} = require('../data-operations/cardOperations');
 const {updateFacilitatorList} = require('../data-operations/facilitatorOperations');
+const {saveTimerDetails} = require('../data-operations/timerOperations');
 const socketEvents = require('../../ui/actions/socketEvents');
 
 function getSocketConnection(server) {
@@ -53,7 +54,14 @@ function getSocketConnection(server) {
         });
         client.on(socketEvents.TIMER_BTN_CLICKED, (reqBody) => {
             console.error("TIMER_BTN_CLICKED: ", reqBody);
-            io.to(reqBody.roomId).emit(socketEvents.TIMER_BTN_CLICKED);
+            let boardId = reqBody.roomId;
+            saveTimerDetails(boardId)
+            .then((res) => {
+                io.to(boardId).emit(socketEvents.TIMER_BTN_CLICKED, {startedAt: res});
+            })
+            .catch(err => {
+                console.error("UPDATE_CARD Error: ", err);
+            });
         });
         client.on(socketEvents.TIMER_STOPPED, (reqBody) => {
             console.error("TIMER_STOPPED: ", reqBody);
