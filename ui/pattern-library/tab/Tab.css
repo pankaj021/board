@@ -18,9 +18,9 @@
     color: #0066ff;
 }
 .tab-selected{
-    border: 2px solid #ff0000;
+    border: 2px solid #ff3300;
     border-bottom: none;
-    background: #ff0000;
+    background: #ff3300;
     color: #ffffff;
     /* background: #f9b3dd; */
 
