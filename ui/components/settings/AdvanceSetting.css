@@ -25,9 +25,9 @@
     right: 10px;
     top: 5px;
     cursor: pointer;
-    color: #000;
-    text-decoration: underline;
-    font-size: 18px;
+    color: #FF2E63;
+    /* text-decoration: underline; */
+    font-size: 24px;
 }
 .wd-80{
     width: 80%;

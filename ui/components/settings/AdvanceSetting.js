@@ -20,7 +20,7 @@ class AdvanceSetting extends Component{
         if(!isActive) return null;
         return(
             <aside className='advance-setting fit-space'>
-                <div className='h-font close-icon' title='close' onClick={this.closeModal}>Close</div>
+                <div className='h-font close-icon' title='close' onClick={this.closeModal}>X</div>
                 {/* <h4 className='h-font h-1 h-setting'>Advance Setting</h4> */}
                 <Tab defaultTabIndex={0}>
                     <TabItem tabTitle='Members'>
