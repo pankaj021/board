@@ -68,3 +68,21 @@ header{
 .timer-val{
     white-space: nowrap;
 }
+.clap-modal{
+    text-align: center;
+    padding: 4rem 8rem;
+    background-image: linear-gradient(135deg, rgba(213, 124, 230, 0.4) 0, rgba(180, 71, 201, 0) 100%), linear-gradient(135deg, #006080 0, #009bce 100%);
+    z-index: 2000;
+}
+.clap-body{
+}
+.clap-i{
+    height: 12rem;
+    width: 12rem;
+}
+.clap-count{
+    font-size: 10rem;
+}
+.next-facilitators{
+    font-size: 6rem;
+}

@@ -15,8 +15,6 @@ function getTimeSinceStandUpStarted(){
         let mmInMS = hhInMS + (mm * mmOffSet);
         let ss = Math.floor( (timeDifference - mmInMS) / ssOffSet);
         let isDelayed = (targetTime - timeDifference < 0);
-        console.log("isDelayed: ", isDelayed);
-        
         return {
             hh: Math.abs(initailValue.hh - hh), 
             mm: Math.abs(initailValue.mm - mm), 
@@ -34,14 +32,17 @@ const initialState = {
     timerBtnText: initialBoardData.isActive ? "Finish it on count of 3" : "Let's start",
     stopId: "",
     ...getTimeSinceStandUpStarted(),
+    isDisabled: false
 }
 
 const timerReducer = (state = initialState, action) => {
     switch (action.type) {
         case socketEvents.TIMER_BTN_CLICKED:
-            let timerSarted = !state.timerSarted;
-            let timerBtnText = timerSarted ? "Finish it on count of 3" : "Let's start";
-            return {...state, ...action.payload, timerSarted, timerBtnText, timerStopped: false};
+            let timerSarted = action.payload.isActive;
+            console.log("timerSarted : ", timerSarted);
+            let timerBtnText = timerSarted ? "Finish it on count of 3" : "It's done for the day.";
+            let isDisabled = !timerSarted;
+            return {...state, timerSarted, timerBtnText, timerStopped: false, isDisabled};
         case socketEvents.TIMER_STOPPED:
             let timerStopped = !state.timerStopped;
             return {...state, timerStopped};

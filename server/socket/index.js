@@ -56,11 +56,12 @@ function getSocketConnection(server) {
             console.error("TIMER_BTN_CLICKED: ", reqBody);
             let boardId = reqBody.roomId;
             saveTimerDetails(boardId)
-            .then((res) => {
-                io.to(boardId).emit(socketEvents.TIMER_BTN_CLICKED, {startedAt: res});
+            .then((isActive) => {
+                console.error("TIMER_BTN_CLICKED isActive: ", isActive);
+                io.to(boardId).emit(socketEvents.TIMER_BTN_CLICKED, {isActive});
             })
             .catch(err => {
-                console.error("UPDATE_CARD Error: ", err);
+                console.error("TIMER_BTN_CLICKED Error: ", err);
             });
         });
         client.on(socketEvents.TIMER_STOPPED, (reqBody) => {

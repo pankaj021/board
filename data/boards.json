@@ -4,23 +4,25 @@
       "boardName": "test",
       "boardType": "Standup",
       "isPublic": true,
-      "isActive": true,
+      "isActive": false,
       "facilitators": [
          {
-            "_id": "76-4kY53r67828115",
+            "_id": "C6EGwrY0k61947863",
             "boardId": "FMDvpND-v74727119",
-            "fullName": "Pankaj Maurya",
-            "nickName": "Pankaj",
+            "fullName": "Kunal Gupta",
+            "nickName": "Kunal",
             "isPresent": true,
-            "frequency": 2,
-            "createTS": "2019-10-06T17:33:27.993Z"
+            "frequency": 0,
+            "createTS": "2019-10-11T14:40:12.607Z"
          },
          {
-            "_id": "000000000000",
-            "fullName": "Nobody Present",
-            "nickName": "Nobody",
+            "_id": "jS7xPs2op33511582",
+            "boardId": "FMDvpND-v74727119",
+            "fullName": "Hemasundar",
+            "nickName": "Hemasundar",
             "isPresent": true,
-            "frequency": 0
+            "frequency": 0,
+            "createTS": "2019-10-11T14:41:06.046Z"
          }
       ],
       "columns": [
@@ -29,9 +31,9 @@
          "1IskoAp7CH75705136"
       ],
       "avgTime": 0,
-      "frequency": 46,
+      "frequency": 78,
       "ceateTS": "2019-09-22T08:06:04.140Z",
-      "startedAt": "2019-10-12T12:39:03.132Z"
+      "startedAt": "2019-10-12T19:01:04.663Z"
    },
    {
       "_id": "MI3LjC0tq7933569",
@@ -61,8 +63,10 @@
          "23KZoKNUrK18275267"
       ],
       "avgTime": 0,
-      "frequency": 0,
-      "ceateTS": "2019-09-22T11:34:53.082Z"
+      "frequency": 2,
+      "ceateTS": "2019-09-22T11:34:53.082Z",
+      "startedAt": "2019-10-12T17:59:49.802Z",
+      "isActive": false
    },
    {
       "_id": "XQFUXgrCV12358273",
@@ -319,5 +323,22 @@
       "avgTime": 0,
       "frequency": 0,
       "ceateTS": "2019-10-06T17:38:40.533Z"
+   },
+   {
+      "_id": "UfHRmEBR41664194",
+      "boardName": "tracker-board",
+      "boardType": "Normal",
+      "isPublic": true,
+      "facilitators": [],
+      "columns": [
+         "vmJSRS4---75212982",
+         "QeKoinykfa16348525",
+         "QktgUgL2HF5260806"
+      ],
+      "avgTime": 0,
+      "frequency": 0,
+      "startedAt": null,
+      "isActive": false,
+      "createTS": "2019-10-12T18:04:31.555Z"
    }
 ]

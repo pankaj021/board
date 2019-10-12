@@ -1,5 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
+import ClapModal from './ClapModal';
 import * as socketActions from '../../actions/socket/socketActions';
 import {Button} from '../../pattern-library';
 
@@ -42,7 +43,8 @@ class Timer extends React.Component{
             isDelayed = this.state.isDelayed = true; 
         }
         if(isDelayed){
-            hh >= 1 ? this.clearTimer() : this.upCounting();  // after 1 hour delay reset everything.
+            // hh >= 1 ? this.clearTimer() : this.upCounting();  // after 1 hour delay reset everything.
+            hh >= 1 ? clearInterval(this.stopId) : this.upCounting(); 
         }
         else{
             this.downCounting();
@@ -108,10 +110,12 @@ class Timer extends React.Component{
                     <span style={{ fontSize: '22px', paddingRight: this.state.isDelayed ? '5px' : '0px'}}>{this.state.isDelayed ? ' - ' : " "}</span>
                     <span className='timer-val'> { this.formatWatchTime() } </span>
                     <Button 
+                        isDisabled={this.props.isDisabled}
                         text={timerBtnText ||"Let's Start"} 
                         btnType='btn-pm' 
                         onClickHandler={timerClickedHandler}
                     />
+                    <ClapModal isActive={this.props.isDisabled}/>
                 </span>
             </div>
         )
