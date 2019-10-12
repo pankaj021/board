@@ -2,6 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import Facilators from './Facilitators';
 import Timer from './Timer';
+import ShoutOut from './ShoutOut';
 import AdvanceSetting from '../settings/AdvanceSetting';
 import './Header.css';
 
