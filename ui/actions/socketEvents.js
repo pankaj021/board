@@ -13,6 +13,10 @@ module.exports.TIMER_STOPPED = "TIMER_STOPPED";
 module.exports.NOT_PRESENT = "NOT_PRESENT";
 module.exports.NOT_PRESENT_SUCCESS = "NOT_PRESENT_SUCCESS";
 module.exports.NOT_PRESENT_ERROR = "NOT_PRESENT_ERROR";
+module.exports.SHARE_CARD = "SHARE_CARD";
+module.exports.SHARE_CARD_SUCCESS = "SHARE_CARD_SUCCESS";
+module.exports.SHARE_CARD_ERROR = "SHARE_CARD_ERROR";
+
 
 
 

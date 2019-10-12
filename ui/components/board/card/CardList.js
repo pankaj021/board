@@ -7,7 +7,6 @@ let randomIdGenerator = () => (shortid.generate() + Math.ceil(100000000 * Math.r
 
 let CardList = ( props ) => {
     const headerCol = props.headerCol;
-
     return <div className='Card-list'>
         {
             props.cards.map( card => {

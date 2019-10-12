@@ -18,11 +18,10 @@
     color: #0066ff;
 }
 .tab-selected{
-    border: 2px solid #fb323c;
+    border: 2px solid #ff0000;
     border-bottom: none;
-    background: white;
-    color: white;
+    background: #ff0000;
+    color: #ffffff;
     /* background: #f9b3dd; */
-    background: #ff471a;
 
 }

@@ -21,10 +21,9 @@
 .create-board{
     left: 25%;
     display: inline-flex;
-    /* align-items: center; */
+    align-items: center;
     justify-content: center;
     bottom: 0;
-    margin-top: 48px;
     overflow: auto;
 }
 .board-search{

@@ -6,7 +6,7 @@ module.exports.getInitialPublicBoardData = () => {
         }
     }
     return {
-        publicBoards: [],
+        publicBoards: initialBoardData.publicBoards,
         showHeaderItems: !!initialBoardData._id
     };
 }
@@ -40,9 +40,30 @@ module.exports.getInitialBoardData = () => {
             loadMsg: "",
             isError: false,
             errorMsg: "",
-            ...initialBoardData
+            ...initialBoardData,
+            cards: sortByAddAndExpiryDate(initialBoardData.columns, initialBoardData.cards)
         } 
     }
+}
+
+function sortByAddAndExpiryDate(columns, cards) {
+    let filteredCards = [];
+    if(columns){
+        columns.forEach(column => {
+            let columnCards = cards.filter(card => card.columnId === column._id);
+            filteredCards = filteredCards.concat(columnCards.sort((a, b) => {
+                if (!a.expiryDt) return 1;
+                if(!b.expiryDt) return -1;
+                // const toady = new Date();
+                // const aExpiryDt = new Date(a.expiryDt);
+                // const bExpiryDt = new Date(b.expiryDt);
+                // if((aExpiryDt.setHours(0,0,0,0) - toady.setHours(0,0,0,0)) >= 7 * 86400000) return 1;
+                return (new Date(a.expiryDt) - new Date(b.expiryDt));
+            }))
+        })
+    }
+
+    return filteredCards;
 }
 
 module.exports.deleteAnItemFromList = (list, item) => {

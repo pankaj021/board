@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
+import shortid from 'shortid';
 import * as socketActions from '../../../actions/socket/socketActions';
 import * as cardActions from '../../../actions/sync/cardActions';
 import {TextArea, DropDown, Button} from '../../../pattern-library';
+import ShareList from './ShareList';
 import './Card.css';
 
 function firstLetterUpperCase(content){
@@ -10,23 +12,52 @@ function firstLetterUpperCase(content){
     return "";
 }
 
+function formatDate(date){
+    let today = new Date();
+    if(date) {
+        let inputDate = new Date(date);
+        if(inputDate.setHours(0,0,0,0) === today.setHours(0,0,0,0)) return 'today';
+        else if(inputDate.setHours(0,0,0,0) - today.setHours(0,0,0,0) === 86400000 ) return 'tomorrow'
+        else if(today.setHours(0,0,0,0) - inputDate.setHours(0,0,0,0) === 86400000 ) return 'yesterday'
+        else return ( 'on ' + inputDate.toDateString().split(' ').slice(0, 3).join(" "))
+    }
+}
+
+let randomIdGenerator = () => (shortid.generate() + Math.ceil(100000000 * Math.random()));
+
 class Card extends Component{
     constructor(props){
         super();
         this.state = {
-            ...props.card
+            ...props.card,
+            isActive: false
         }
+        this.onClickShare = this.onClickShare.bind(this);
+    }
+
+    onClickShare(){
+        this.setState({isActive: randomIdGenerator()});
     }
     
     render(){
-        let {_id, addedBy, content, expiryDt} = this.state; 
-        let expiresOnTxt = expiryDt ? '- On ' + new Date(expiryDt).toDateString() : "";
+        let {_id, addedBy, content, expiryDt, addedDt, isActive, columnId} = this.state; 
+        let expiresOnTxt = '';
+        if(expiryDt) {
+            if(formatDate(expiryDt).includes('yesterday')) return null;   // don't display that item.
+            expiresOnTxt = expiryDt ? '- Expires ' + formatDate(expiryDt) : "";
+        }
+        let addedDtTxt = addedDt ? 'Added ' + formatDate(addedDt) : "";
         return(
             <div className='card column-input'>
                 <div className='card-head'>
-                    <div className='add-info'>added today</div>
+                    <div className='add-info'>{`${addedDtTxt}` || ""}</div>
                     <div className='d-flex align-ct'>
-                        <img className='card-icon' src='/icons/share.svg' title='share' alt='share'/>
+                        <span className='share-it'>
+                            <img className='card-icon' src='/icons/share-new1.svg' title='share' alt='share'
+                                onClick={this.onClickShare}
+                            />
+                            {<ShareList key={_id} card={{_id, addedBy, content, expiryDt, addedDt, columnId}} isActive={isActive}/>}
+                        </span>
                         <img className='mg-l-10 card-icon' src='/icons/edit.svg' title='edit' alt='edit'
                             onClick={() => this.props.editCard(this.state)}
                         />
@@ -45,7 +76,7 @@ class Card extends Component{
                     </span>
                 </div>
                 <div className='card-extras'>
-                    <div className='card-expiry-dt'>{expiresOnTxt}</div>
+                    <div className='card-expiry-dt'>{`${expiresOnTxt}` || ""}</div>
                 </div>
             </div>
         )

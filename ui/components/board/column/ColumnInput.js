@@ -7,6 +7,16 @@ import {TextArea, DropDown, Button, DatePicker, Emoji, AutoComplete} from '../..
 import {getElementValue} from './helper';
 import "./Column.css";
 const defaultState = {content: "", addedBy: "", expiryDt: "", assignedTo: ""};
+const getDDOptions = (members) => {
+    const defaultOption = [{text: "All", value: 'All'}];
+    let ddOptions = [];
+    if(members) {
+        ddOptions = members.map(member => ({
+            text: member.fullName || 'Some Name', value: member.nickName || 'Somebody'
+        }))
+    }
+    return defaultOption.concat(ddOptions);
+}
 
 class ColumnInput extends Component{
     constructor(props){
@@ -71,13 +81,7 @@ class ColumnInput extends Component{
                             placeholder="All"
                             className=''
                             autoCompleteRef={(el) => this.addedByNode = el}
-                            ddOptions={[
-                                {text: "All", value: 'All'},
-                                {text: "Thiru", value: '001'},
-                                {text: "pan ma", value: '001'},
-                                {text: "hareshwar", value: '001'},
-                                {text: "s suvendianan", value: '001'}
-                            ]}
+                            ddOptions={getDDOptions(this.props.members)}
                             value={addedBy || ""}
                         />
                         {/* <AutoComplete 
@@ -86,13 +90,7 @@ class ColumnInput extends Component{
                             placeholder="All"
                             className=''
                             autoCompleteRef={(el) => this.assignedToNode = el}
-                            ddOptions={[
-                                {text: "All", value: 'All'},
-                                {text: "Thiru", value: '001'},
-                                {text: "pan ma", value: '001'},
-                                {text: "hareshwar", value: '001'},
-                                {text: "s suvendianan", value: '001'}
-                            ]}
+                            ddOptions={getDDOptions(this.props.members)}
                             value={assignedTo || ""}
                         /> */}
                         <DatePicker 
@@ -115,7 +113,9 @@ class ColumnInput extends Component{
     }
 }
 
-const mapStateToProps = null;
+const mapStateToProps = (state) => ({
+    members: state.members
+});
 
 const mapDispatchToProps = (dispatch) => {
     return {

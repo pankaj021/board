@@ -20,18 +20,17 @@ class AutoComplete extends Component{
     }
 
     getMaxHeight(){
-        console.log('max height', Math.min(window.innerHeight * .45 , 250));
-        return Math.min(window.innerHeight * .45 , 250);
+        return Math.min(window.innerHeight * .45 , 160);
     }
 
     removeList(){
-        this.suggestionList.classList.remove('show-list');
-        this.suggestionList.classList.add('hide-list');
+        this.suggestionList && this.suggestionList.classList.remove('show-list');
+        this.suggestionList && this.suggestionList.classList.add('hide-list');
     }
 
     showList(){
-        this.suggestionList.classList.remove('hide-list');
-        this.suggestionList.classList.add('show-list');
+        this.suggestionList && this.suggestionList.classList.remove('hide-list');
+        this.suggestionList && this.suggestionList.classList.add('show-list');
     }
 
     componentDidMount(){
@@ -47,16 +46,16 @@ class AutoComplete extends Component{
         this.keyUpDownCount = 0;
         const targetVal = event.target.value;
         let ddOptions = this.props.ddOptions;
-        if(targetVal.length) ddOptions = this.props.ddOptions.filter(option => option.text.toUpperCase().includes(targetVal.toUpperCase()))
+        if(targetVal.length) ddOptions = this.props.ddOptions.filter(option => option.value.toUpperCase().includes(targetVal.toUpperCase()))
         this.showList();
         this.setState({value: event.target.value, ddOptions});
     }
 
-    onKeyDown(event){
-        const {ddOptions} = this.state;
+    onKeyDown(event){  // UI issue
+        const ddOptions = this.state.ddOptions.slice(0, 4);
         if(event.key === 'Enter') return this.removeList(); // close the suggestion list.
         if(event.key === 'ArrowUp' || event.key === 'ArrowDown') {
-            const selectItem = ddOptions[this.keyUpDownCount]['text'];
+            const selectItem = ddOptions[this.keyUpDownCount]['value'];
             let liCollection = this.suggestionList.children;
             for (let index = 0; index < liCollection.length; index++) {
                 const element = liCollection[index];
@@ -92,7 +91,7 @@ class AutoComplete extends Component{
         //         right: 0,
         //     }
         // }
-        if(this.suggestionList.classList.contains('hide-list')) this.showList();
+        if(this.suggestionList && this.suggestionList.classList.contains('hide-list')) this.showList();
         else this.removeList();
         this.setState({ddOptions: this.props.ddOptions, itemlListStyle});
     }
@@ -106,8 +105,8 @@ class AutoComplete extends Component{
         for (let index = 0; index < ddOptions.length; index++) {
             const {text, value} = ddOptions[index];
             if(text && value) optionArray.push(
-                <li key={index} className='input-pd' value={value} onClick={() => this.selectItem(text)}>
-                    {text}
+                <li key={index} className='input-pd' value={value} onClick={() => this.selectItem(value)}>
+                    {value}
                 </li>
             );
             else throw new Error("Invalid Dropdown Option !!! \n Note: It should be in [{text: 'truthy', value: 'truthy'}] format.")

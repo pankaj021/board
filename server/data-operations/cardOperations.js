@@ -13,7 +13,7 @@ function addANewCard(reqBody) {
         ]).then(data => {
             let cardData = data[0] ? data[0] : [];
             let columnData = data[1];
-            cardData.push(newCard);
+            cardData = [newCard].concat(cardData);
             addInColumn(columnData, reqBody.columnId, newCard);
             Promise.all([
                 writeJson(cardPath, cardData),
@@ -90,4 +90,30 @@ function updateCard(card) {
     })
 }
 
-module.exports = {addANewCard, deleteACard, updateCard};
+function shareCard(reqBody) {
+    let {selectedBoard, card, board} = reqBody;
+    selectedBoard = selectedBoard.slice(0, 1);  // The feature is partially available. 
+    return new Promise((resolve, reject) => {
+        let columnList = [];
+        selectedBoard.map(sBoard => {
+            let columnIndex =  sBoard.boardType === board.boardType && board.columnIndex ? board.columnIndex : 0;
+            columnList.push(sBoard.columns[columnIndex]);
+        });
+        let promiseArr = columnList.map( columnId => {
+            return addANewCard({
+                ...card,
+                columnId
+            })
+        })
+        if(promiseArr.length) {
+            Promise.all(promiseArr)
+            .then((response) => resolve(response))
+            .catch(err => reject(err));
+        } else {
+            throw new Error("Internal server error, we were not able to share.");
+        }
+        
+    })
+}
+
+module.exports = {addANewCard, deleteACard, updateCard, shareCard};

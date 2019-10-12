@@ -121,3 +121,7 @@ img{
 .mg-r-8{
     margin-right: 8px;
 }
+
+a:-webkit-any-link, a:any-link{
+    color: unset;
+}
