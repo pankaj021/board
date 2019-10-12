@@ -12,8 +12,15 @@ router.get('/', (req, res, next) => {
 router.get('/:boardName', (req, res, next) => {
     let {boardName} = req.params;
     if(!isValidBoardName(boardName)) return res.status(400).render('index', {boardData: JSON.stringify({message: "Invalid Board Name."})});
-    loadBoardData(boardName)
-    .then(boardData => res.status(200).render('index', {boardData: JSON.stringify(boardData)}))
+    Promise.all([
+        loadAllPublicBoards(),
+        loadBoardData(boardName)
+    ])
+    .then((data) => {
+        let publicBoards = data[0];
+        let boardData = data[1];
+        res.status(200).render('index', {boardData: JSON.stringify({...boardData, publicBoards})});
+    })
     .catch(next);  
 })
 

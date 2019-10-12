@@ -1,5 +1,5 @@
 var socketIO = require('socket.io');
-const {addANewCard, deleteACard, updateCard} = require('../data-operations/cardOperations');
+const {addANewCard, deleteACard, updateCard, shareCard} = require('../data-operations/cardOperations');
 const {updateFacilitatorList} = require('../data-operations/facilitatorOperations');
 const socketEvents = require('../../ui/actions/socketEvents');
 
@@ -66,6 +66,18 @@ function getSocketConnection(server) {
             .catch(err => {
                 console.error("UPDATE_CARD Error: ", err);
                 io.to(reqBody.roomId).emit(socketEvents.NOT_PRESENT_ERROR, defaultError);
+            });
+        });
+        client.on(socketEvents.SHARE_CARD, (reqBody) => {
+            shareCard(reqBody)
+            .then((response) => {
+                response.forEach((card, index) => {
+                    let board = reqBody.selectedBoard[index];
+                    io.to(board._id).emit(socketEvents.ADD_CARD_SUCCESS, {status: 200, card});
+                })
+            })
+            .catch(err => {
+                io.to(reqBody.roomId).emit(socketEvents.SHARE_CARD_ERROR, defaultError);
             });
         });
     })

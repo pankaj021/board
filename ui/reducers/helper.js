@@ -6,7 +6,7 @@ module.exports.getInitialPublicBoardData = () => {
         }
     }
     return {
-        publicBoards: [],
+        publicBoards: initialBoardData.publicBoards,
         showHeaderItems: !!initialBoardData._id
     };
 }

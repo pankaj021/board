@@ -32,3 +32,8 @@ export const notPresent = (reqData) => ({
     socketEvent: events.NOT_PRESENT,
     payload: reqData
 })
+
+export const shareCard = (reqData) => ({
+    socketEvent: events.SHARE_CARD,
+    payload: reqData
+})
