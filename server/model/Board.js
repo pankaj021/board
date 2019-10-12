@@ -11,6 +11,6 @@ module.exports.Board = (reqBody) => {
         "columns": [],
         "avgTime": 0,
         "frequency": 0,
-        "ceateTS": new Date()
+        "createTS": new Date()
     }
 }

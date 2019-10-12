@@ -13,7 +13,7 @@ function addANewCard(reqBody) {
         ]).then(data => {
             let cardData = data[0] ? data[0] : [];
             let columnData = data[1];
-            cardData.push(newCard);
+            cardData = [newCard].concat(cardData);
             addInColumn(columnData, reqBody.columnId, newCard);
             Promise.all([
                 writeJson(cardPath, cardData),

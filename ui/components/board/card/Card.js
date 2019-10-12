@@ -10,6 +10,17 @@ function firstLetterUpperCase(content){
     return "";
 }
 
+function formatDate(date){
+    let today = new Date();
+    if(date) {
+        let inputDate = new Date(date);
+        if(inputDate.setHours(0,0,0,0) === today.setHours(0,0,0,0)) return 'today';
+        else if(inputDate.setHours(0,0,0,0) - today.setHours(0,0,0,0) === 86400000 ) return 'tomorrow'
+        else if(today.setHours(0,0,0,0) - inputDate.setHours(0,0,0,0) === 86400000 ) return 'yesterday'
+        else return ( 'on ' + inputDate.toDateString().split(' ').slice(0, 3).join(" "))
+    }
+}
+
 class Card extends Component{
     constructor(props){
         super();
@@ -19,12 +30,17 @@ class Card extends Component{
     }
     
     render(){
-        let {_id, addedBy, content, expiryDt} = this.state; 
-        let expiresOnTxt = expiryDt ? '- On ' + new Date(expiryDt).toDateString() : "";
+        let {_id, addedBy, content, expiryDt, addedDt} = this.state; 
+        let expiresOnTxt = '';
+        if(expiryDt) {
+            if(formatDate(expiryDt).includes('yesterday')) return null;   // don't display that item.
+            expiresOnTxt = expiryDt ? '- Expires ' + formatDate(expiryDt) : "";
+        }
+        let addedDtTxt = addedDt ? 'Added ' + formatDate(addedDt) : "";
         return(
             <div className='card column-input'>
                 <div className='card-head'>
-                    <div className='add-info'>added today</div>
+                    <div className='add-info'>{`${addedDtTxt}` || ""}</div>
                     <div className='d-flex align-ct'>
                         <img className='card-icon' src='/icons/share-new1.svg' title='share' alt='share'/>
                         <img className='mg-l-10 card-icon' src='/icons/edit.svg' title='edit' alt='edit'
@@ -45,7 +61,7 @@ class Card extends Component{
                     </span>
                 </div>
                 <div className='card-extras'>
-                    <div className='card-expiry-dt'>{expiresOnTxt}</div>
+                    <div className='card-expiry-dt'>{`${expiresOnTxt}` || ""}</div>
                 </div>
             </div>
         )

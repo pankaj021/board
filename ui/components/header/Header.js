@@ -20,9 +20,11 @@ class Header extends React.Component {
             <header className='header'>
                 <div className='h-content'>
                     <div className='d-flex h-left-wrp'>
-                        <div className='h-logo-wrp h-font mg-r-48'>
-                            <a href='/'><img className='h-logo' src='/icons/favicon.ico' alt='CompoZed'/></a>
-                            {boardName || 'X-Board'}
+                        <div className=' d-flex align-ct h-logo-wrp h-font mg-r-48'>
+                            <a className='d-flex align-ct' href='/'>
+                                <img className='h-logo' src='/icons/favicon.ico' alt='CompoZed'/>
+                            </a>
+                            <span>{boardName || 'X-Board'}</span>
                         </div>
                         {showHeaderItems && <Facilators />}
                         {showHeaderItems && <Timer />}
