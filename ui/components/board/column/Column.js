@@ -18,7 +18,7 @@ class Column extends Component{
         return(
             <div className={columnCss}>
                 <ColumnHead headerCol={headerCol} columnName={column.columnName} columnId={column._id}/>
-                <ColumnInput columnId={column._id}/>
+                <ColumnInput columnId={column._id} columnName={column.columnName}/>
                 <CardList cards={filteredCards} headerCol={headerCol}></CardList>
             </div>
         )

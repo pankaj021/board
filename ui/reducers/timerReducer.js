@@ -1,7 +1,7 @@
 import * as socketEvents from '../actions/socketEvents';
 import {getTimeSinceStandUpStarted} from '../helper/getTimeSinceStandUpStarted';
 
-let initailValue = {hh: 0, mm: 0, ss: 30};
+let initailValue = {hh: 0, mm: 4, ss: 0};
 
 const initialState = {
     initailValue,

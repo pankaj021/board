@@ -76,3 +76,7 @@
 .user-content{
     max-height: none !important;
 }
+.retro-style{
+    margin-top: 10px;
+    justify-content: flex-end;
+}

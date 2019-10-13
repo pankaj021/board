@@ -36,7 +36,7 @@ class ColumnInput extends Component{
         const assignedTo = getElementValue(this.assignedToNode) || null;
         const {addCard, updateCard, btnText, _id, isEdited} = this.props;
         if(content.trim()) {
-            this.expiryNode.value = '';
+            this.expiryNode && (this.expiryNode.value = '');
             if(isEdited) updateCard({columnId, content, addedBy, expiryDt, assignedTo, _id});
             else addCard({columnId, content, addedBy, expiryDt, assignedTo});
             this.setState({...defaultState});
@@ -56,6 +56,8 @@ class ColumnInput extends Component{
     render(){
         let {content, addedBy, expiryDt, assignedTo} = this.state;
         let btnText = this.props.btnText || 'Add';
+        let isBoardRetro = initialBoardData.boardType === 'Retro';
+        let retroClass = isBoardRetro ? ' retro-style ' : ""; 
         return(
             <div className='column-input'>
                 <div className='content-wrp'>
@@ -73,8 +75,8 @@ class ColumnInput extends Component{
                         onSelectEmojiCallBack={this.onSelectEmojiCallBack}
                     />
                 </div>
-                <div className='d-flex'>
-                    <div className='d-flex align-ct col-ip-dd'>
+                <div className={'d-flex' + retroClass}>
+                    {!isBoardRetro && <div className='d-flex align-ct col-ip-dd'>
                         <AutoComplete 
                             id='addedBy'
                             label='Added by'
@@ -93,13 +95,13 @@ class ColumnInput extends Component{
                             ddOptions={getDDOptions(this.props.members)}
                             value={assignedTo || ""}
                         /> */}
-                        <DatePicker 
+                        {this.props.columnName !== 'Interesting' && <DatePicker 
                             label='Expires On'
                             id='expiryDate'
                             dateRef={ el => this.expiryNode = el } 
                             value={expiryDt || ''}
-                        />
-                    </div>
+                        />}
+                    </div>}
                     <Button text={btnText} btnType='btn-sc' onClickHandler={this.onClickAddCard}/>
                     {
                         this.props.isEdited &&
