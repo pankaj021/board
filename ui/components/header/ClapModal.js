@@ -55,7 +55,7 @@ class ClapModal extends React.Component{
     render(){
         if(this.state.isActive){
             return (
-                <div className='clap-modal fit-space'>
+                <div className='clap-modal fit-space d-flex align-ct'>
                     <div className='clap-body'>
                         {
                             this.getClapInfo()

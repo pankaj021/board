@@ -5,7 +5,7 @@
       "fullName": "Sonu Dhaniwal",
       "nickName": "Sonu",
       "isPresent": true,
-      "frequency": 10,
+      "frequency": 12,
       "createTS": "2019-10-06T17:33:21.030Z"
    },
    {
@@ -14,7 +14,7 @@
       "fullName": "Pankaj Maurya",
       "nickName": "Pankaj",
       "isPresent": true,
-      "frequency": 10,
+      "frequency": 11,
       "createTS": "2019-10-06T17:33:27.993Z"
    },
    {
@@ -23,7 +23,7 @@
       "fullName": "Thirupathi Muniswami",
       "nickName": "Thirupathi",
       "isPresent": true,
-      "frequency": 10,
+      "frequency": 11,
       "createTS": "2019-10-06T17:33:47.585Z"
    },
    {
@@ -32,7 +32,7 @@
       "fullName": "Vijay Kasandi",
       "nickName": "Vijay",
       "isPresent": true,
-      "frequency": 10,
+      "frequency": 11,
       "createTS": "2019-10-06T17:33:57.837Z"
    },
    {
@@ -131,7 +131,7 @@
       "fullName": "Kunal Gupta",
       "nickName": "Kunal",
       "isPresent": true,
-      "frequency": 10,
+      "frequency": 11,
       "createTS": "2019-10-11T14:40:12.607Z"
    },
    {
@@ -140,7 +140,7 @@
       "fullName": "jeetendra",
       "nickName": "Jeetendra",
       "isPresent": true,
-      "frequency": 9,
+      "frequency": 11,
       "createTS": "2019-10-11T14:40:37.672Z"
    },
    {
@@ -149,7 +149,7 @@
       "fullName": "Hemasundar",
       "nickName": "Hemasundar",
       "isPresent": true,
-      "frequency": 9,
+      "frequency": 11,
       "createTS": "2019-10-11T14:41:06.046Z"
    },
    {
@@ -158,7 +158,7 @@
       "fullName": "Rakesh Shastri",
       "nickName": "Rakesh",
       "isPresent": true,
-      "frequency": 9,
+      "frequency": 11,
       "createTS": "2019-10-11T14:41:23.292Z"
    },
    {
@@ -167,7 +167,7 @@
       "fullName": "Narendra patil",
       "nickName": "Narendra",
       "isPresent": true,
-      "frequency": 9,
+      "frequency": 11,
       "createTS": "2019-10-11T14:41:38.286Z"
    }
 ]

@@ -1,5 +1,7 @@
 let { readJson, writeJson } = require('./helper');
 let {getNextFacilitatorList} = require('./facilitatorOperations');
+let {autoCleanData} = require('../data-operations/cardOperations');
+const {INACTIVE_TIME} = require('../../constants');
 
 function saveTimerDetails(boardId) {
     const filePath = __dirname + '/../../data/boards.json';
@@ -22,6 +24,7 @@ function saveTimerDetails(boardId) {
                         triggerClap = true;
                         newFacilitators = await getNextFacilitatorList(currentBoard);
                     } else if(shouldStartTheTimer(board.startedAt)){
+                        await autoCleanData({boardName: board.boardName});
                         startedAt = new Date();
                         board.startedAt = startedAt;
                         board.frequency += 1;
@@ -52,7 +55,7 @@ function shouldStartTheTimer(lastStartedAt) {
     if(lastStartedAt){
         const currentTime = new Date().getTime();
         const lastTime = new Date(lastStartedAt).getTime();
-        return (currentTime - lastTime > (30 * 1000));   //minimum 10hrs gap between two events.
+        return (currentTime - lastTime > (INACTIVE_TIME || 12 * 60 * 60 * 1000));   //minimum 10hrs gap between two events.
     } else {
         return true;
     }

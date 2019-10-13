@@ -1,5 +1,14 @@
 [
    {
+      "_id": "5E005YzBJ63132040",
+      "columnId": "KZ5DA751pA85049672",
+      "content": "exipres today",
+      "addedBy": "Thirupathi",
+      "expiryDt": "10/13/2019",
+      "addedDt": "2019-10-13T09:53:17.233Z",
+      "updatedDt": null
+   },
+   {
       "_id": "jXlYPLTk_52746174",
       "columnId": "1IskoAp7CH75705136",
       "content": "https://www.npmjs.com/ test this also",
@@ -42,15 +51,6 @@
       "addedBy": "Sonu",
       "expiryDt": "10/14/2019",
       "addedDt": "2019-10-12T18:06:16.671Z",
-      "updatedDt": null
-   },
-   {
-      "_id": "bsVuw2yqF14268453",
-      "columnId": "1IskoAp7CH75705136",
-      "content": "iq retro is here : http://localhost:3000/iq",
-      "addedBy": "Vijay",
-      "expiryDt": "10/21/2019",
-      "addedDt": "2019-10-12T17:58:15.304Z",
       "updatedDt": null
    },
    {
@@ -112,7 +112,7 @@
       "columnId": "23KZoKNUrK18275267",
       "content": "new irtemwm",
       "addedBy": "All",
-      "expiryDt": "",
+      "expiryDt": "10/10/2019",
       "addedDt": "2019-10-12T10:11:16.412Z",
       "updatedDt": null
    },
@@ -132,15 +132,6 @@
       "addedBy": "All",
       "expiryDt": "",
       "addedDt": "2019-10-12T10:10:49.008Z",
-      "updatedDt": null
-   },
-   {
-      "_id": "KVDgpicCU87830237",
-      "columnId": "lQl8Bh7cgh70067723",
-      "content": "int 2 testting",
-      "addedBy": "Thirupathi",
-      "expiryDt": "10/23/2019",
-      "addedDt": "2019-10-12T10:10:08.762Z",
       "updatedDt": null
    },
    {
@@ -273,31 +264,6 @@
       "expiryDt": "10/18/2019",
       "addedDt": "2019-10-12T05:11:09.099Z",
       "updatedDt": null
-   },
-   {
-      "_id": "tsxtuBd5I82202487",
-      "columnId": "lQl8Bh7cgh70067723",
-      "content": "int 3",
-      "addedBy": "All",
-      "expiryDt": "",
-      "addedDt": "2019-10-12T05:07:11.959Z",
-      "updatedDt": null
-   },
-   {
-      "columnId": "lQl8Bh7cgh70067723",
-      "content": "int 2 testting",
-      "addedBy": "Thirupathi",
-      "expiryDt": "10/23/2019",
-      "assignedTo": null,
-      "_id": "X5idmTYbl36611403"
-   },
-   {
-      "columnId": "lQl8Bh7cgh70067723",
-      "content": "link is here https://www.npmjs.com/package/react-linkify  😛 😛",
-      "addedBy": "All",
-      "expiryDt": "10/16/2019",
-      "assignedTo": null,
-      "_id": "w3Y4FaeHn99554657"
    },
    {
       "_id": "QQElAkTZQ65057676",

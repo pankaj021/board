@@ -7,22 +7,22 @@
       "isActive": false,
       "facilitators": [
          {
-            "_id": "LWkful5gh38928281",
+            "_id": "76-4kY53r67828115",
             "boardId": "FMDvpND-v74727119",
-            "fullName": "jeetendra",
-            "nickName": "Jeetendra",
+            "fullName": "Pankaj Maurya",
+            "nickName": "Pankaj",
             "isPresent": true,
-            "frequency": 9,
-            "createTS": "2019-10-11T14:40:37.672Z"
+            "frequency": 11,
+            "createTS": "2019-10-06T17:33:27.993Z"
          },
          {
-            "_id": "jS7xPs2op33511582",
+            "_id": "QZHjovxKO86089808",
             "boardId": "FMDvpND-v74727119",
-            "fullName": "Hemasundar",
-            "nickName": "Hemasundar",
+            "fullName": "Thirupathi Muniswami",
+            "nickName": "Thirupathi",
             "isPresent": true,
-            "frequency": 9,
-            "createTS": "2019-10-11T14:41:06.046Z"
+            "frequency": 11,
+            "createTS": "2019-10-06T17:33:47.585Z"
          }
       ],
       "columns": [
@@ -31,9 +31,9 @@
          "1IskoAp7CH75705136"
       ],
       "avgTime": 0,
-      "frequency": 122,
+      "frequency": 129,
       "ceateTS": "2019-09-22T08:06:04.140Z",
-      "startedAt": "2019-10-13T07:11:31.340Z"
+      "startedAt": "2019-10-13T10:03:47.263Z"
    },
    {
       "_id": "MI3LjC0tq7933569",

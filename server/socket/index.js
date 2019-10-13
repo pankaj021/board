@@ -1,5 +1,5 @@
 var socketIO = require('socket.io');
-const {addANewCard, deleteACard, updateCard, shareCard} = require('../data-operations/cardOperations');
+const {addANewCard, deleteACard, updateCard, shareCard, autoCleanData} = require('../data-operations/cardOperations');
 const {updateFacilitatorList} = require('../data-operations/facilitatorOperations');
 const {saveTimerDetails} = require('../data-operations/timerOperations');
 const socketEvents = require('../../ui/actions/socketEvents');
