@@ -10,6 +10,7 @@
     text-align: center;
     outline: 0!important;
     color: #fff;
+    white-space: nowrap;
 }
 .btn-pm{
     background-color: #FF2E63 !important;

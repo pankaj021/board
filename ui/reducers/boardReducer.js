@@ -60,7 +60,12 @@ const boardReducer = (state = initState, action) => {
                 ...state,
                 cards: updateItemInList(state.cards, action.payload.card)
             };
-            case socketEvents.NOT_PRESENT_SUCCESS:
+        case socketEvents.NOT_PRESENT_SUCCESS:
+            return {
+                ...state,
+                facilitators: action.payload.facilitators
+            };
+        case socketEvents.NEXT_FACILITATOR:
             return {
                 ...state,
                 facilitators: action.payload.facilitators

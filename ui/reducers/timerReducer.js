@@ -1,29 +1,7 @@
 import * as socketEvents from '../actions/socketEvents';
+import {getTimeSinceStandUpStarted} from '../helper/getTimeSinceStandUpStarted';
+
 let initailValue = {hh: 0, mm: 0, ss: 30};
-function getTimeSinceStandUpStarted(){
-    if(initialBoardData.startedAt && initialBoardData.isActive){
-        const hhOffSet = 60 * 60 * 1000;
-        const mmOffSet = 60 * 1000;
-        const ssOffSet = 1000;
-        let targetTime = initailValue.hh * hhOffSet + initailValue.mm * mmOffSet + initailValue.ss * ssOffSet;
-        let startedAt = new Date(initialBoardData.startedAt).getTime();
-        let currentTime = new Date().getTime();
-        let timeDifference = currentTime - startedAt;
-        let hh = Math.floor(timeDifference / hhOffSet);
-        let hhInMS = hh * hhOffSet;
-        let mm = Math.floor( (timeDifference - hhInMS) / mmOffSet);
-        let mmInMS = hhInMS + (mm * mmOffSet);
-        let ss = Math.floor( (timeDifference - mmInMS) / ssOffSet);
-        let isDelayed = (targetTime - timeDifference < 0);
-        return {
-            hh: Math.abs(initailValue.hh - hh), 
-            mm: Math.abs(initailValue.mm - mm), 
-            ss: Math.abs(initailValue.ss - ss),
-            isDelayed
-        };
-    }
-    return initailValue;
-}
 
 const initialState = {
     initailValue,
@@ -31,18 +9,20 @@ const initialState = {
     timerStopped: !initialBoardData.isActive,
     timerBtnText: initialBoardData.isActive ? "Finish it on count of 3" : "Let's start",
     stopId: "",
-    ...getTimeSinceStandUpStarted(),
-    isDisabled: false
+    ...getTimeSinceStandUpStarted(initailValue, initialBoardData.isActive),
+    isDisabled: false,
+    triggerClap: false
 }
 
 const timerReducer = (state = initialState, action) => {
     switch (action.type) {
         case socketEvents.TIMER_BTN_CLICKED:
             let timerSarted = action.payload.isActive;
+            let triggerClap = action.payload.triggerClap;
             console.log("timerSarted : ", timerSarted);
             let timerBtnText = timerSarted ? "Finish it on count of 3" : "It's done for the day.";
             let isDisabled = !timerSarted;
-            return {...state, timerSarted, timerBtnText, timerStopped: false, isDisabled};
+            return {...state, timerSarted, timerBtnText, timerStopped: false, isDisabled, triggerClap};
         case socketEvents.TIMER_STOPPED:
             let timerStopped = !state.timerStopped;
             return {...state, timerStopped};

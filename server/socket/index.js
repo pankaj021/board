@@ -56,9 +56,12 @@ function getSocketConnection(server) {
             console.error("TIMER_BTN_CLICKED: ", reqBody);
             let boardId = reqBody.roomId;
             saveTimerDetails(boardId)
-            .then((isActive) => {
-                console.error("TIMER_BTN_CLICKED isActive: ", isActive);
-                io.to(boardId).emit(socketEvents.TIMER_BTN_CLICKED, {isActive});
+            .then(response => {
+                console.error("TIMER_BTN_CLICKED response: ", response);
+                io.to(boardId).emit(socketEvents.TIMER_BTN_CLICKED, {isActive: response.isActive, triggerClap: response.triggerClap});
+                if(response.triggerClap) {
+                    io.to(boardId).emit(socketEvents.NEXT_FACILITATOR, {facilitators: response.newFacilitators});
+                }
             })
             .catch(err => {
                 console.error("TIMER_BTN_CLICKED Error: ", err);

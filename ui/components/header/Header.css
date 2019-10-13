@@ -77,12 +77,12 @@ header{
 .clap-body{
 }
 .clap-i{
-    height: 12rem;
-    width: 12rem;
+    height: 10rem;
+    width: 10rem;
 }
 .clap-count{
-    font-size: 10rem;
+    font-size: 8rem;
 }
-.next-facilitators{
-    font-size: 6rem;
+.next-facilitators, .late-msg{
+    font-size: 5rem;
 }

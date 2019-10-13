@@ -115,7 +115,13 @@ class Timer extends React.Component{
                         btnType='btn-pm' 
                         onClickHandler={timerClickedHandler}
                     />
-                    <ClapModal isActive={this.props.isDisabled}/>
+                    <ClapModal 
+                        isDelayed={this.state.isDelayed}
+                        hh={this.state.hh} 
+                        mm={this.state.mm}
+                        ss={this.state.ss}
+                        isDelayed={this.state.isDelayed}
+                    />
                 </span>
             </div>
         )
