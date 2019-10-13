@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 let {isValidBoardName} = require('../../validations/createBoardValidations');
 let {safelyCreateANewBoard, loadBoardData, loadAllPublicBoards} = require('../data-operations/boardOperations');
+let {autoCleanData} = require('../data-operations/cardOperations');
 
 router.get('/', (req, res, next) => {
     loadAllPublicBoards()
@@ -12,14 +13,18 @@ router.get('/', (req, res, next) => {
 router.get('/:boardName', (req, res, next) => {
     let {boardName} = req.params;
     if(!isValidBoardName(boardName)) return res.status(400).render('index', {boardData: JSON.stringify({message: "Invalid Board Name."})});
-    Promise.all([
-        loadAllPublicBoards(),
-        loadBoardData(boardName)
-    ])
-    .then((data) => {
-        let publicBoards = data[0];
-        let boardData = data[1];
-        res.status(200).render('index', {boardData: JSON.stringify({...boardData, publicBoards})});
+    autoCleanData({boardName})
+    .then(() => {
+        Promise.all([
+            loadAllPublicBoards(),
+            loadBoardData(boardName)
+        ])
+        .then((data) => {
+            let publicBoards = data[0];
+            let boardData = data[1];
+            res.status(200).render('index', {boardData: JSON.stringify({...boardData, publicBoards})});
+        })
+        .catch(next);
     })
     .catch(next);  
 })

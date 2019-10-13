@@ -53,13 +53,18 @@ function getBoardColumnList(boardType, boardId) {
         const Column2 = Column({columnName: "Interestings", boardId});
         const Column3 = Column({columnName: "Events", boardId});
         columnList = [Column1, Column2, Column3];
-    } else {
+    } else if(boardType === 'Retro'){
         const Column1 = Column({columnName: "Happy", boardId});
         const Column2 = Column({columnName: "Meh", boardId});
         const Column3 = Column({columnName: "Frowny", boardId});
         const Column4 = Column({columnName: "Action Items", boardId});
         columnList = [Column1, Column2, Column3, Column4];
-    } 
+    } else {
+        const Column1 = Column({columnName: "In Progress", boardId});
+        const Column2 = Column({columnName: "Backlog", boardId});
+        const Column3 = Column({columnName: "Completed", boardId});
+        columnList = [Column1, Column2, Column3];
+    }
     return new Promise ((resolve, reject) => {
         readJson(filePath)
         .then(columnData => {
@@ -129,7 +134,7 @@ function loadAllPublicBoards() {
                     if(board._id === member.boardId) return ++board.noOfMembers;
                 }
             });
-            resolve(filteredData);
+            resolve(filteredData.sort((a, b) => b.noOfMembers - a.noOfMembers));
         })
         .catch(reject);
     })

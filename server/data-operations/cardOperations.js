@@ -1,6 +1,7 @@
 let fs = require('fs');
 const {Card} = require('../model/Card');
 let { readJson, writeJson } = require('./helper');
+const {INACTIVE_TIME} = require('../../constants');
 
 function addANewCard(reqBody) {
     return new Promise((resolve, reject) => {
@@ -116,4 +117,49 @@ function shareCard(reqBody) {
     })
 }
 
-module.exports = {addANewCard, deleteACard, updateCard, shareCard};
+function autoCleanData({boardName}) {
+    const boardPath = __dirname + '/../../data/boards.json';
+    const cardPath = __dirname + '/../../data/cards.json';
+    return new Promise((resolve, reject) => {
+        Promise.all([
+            readJson(boardPath),
+            readJson(cardPath)
+        ])
+        .then((data) => {
+            let boardData = data[0] ? data[0] : [];
+            let cardData = data[1] ? data[1] : [];
+            let targetBoard = {};
+            let targetColumns = [];
+            for (let index = 0; index < boardData.length; index++) {
+                if(boardData[index].boardName === boardName) {
+                    targetBoard = boardData[index];
+                    targetColumns = targetBoard.columns;
+                    break;
+                }
+            }
+            cardData = cardData.filter(card => {
+                if(targetBoard.boardType === 'Standup' && card.columnId === targetColumns[1] && isFromLastDay(targetBoard.startedAt)){   // Temporary code, for auto deleting Interestings;
+                    return false;
+                }
+                if(targetColumns.includes(card.columnId) && card.expiryDt){
+                    let currentTime = new Date().setHours(0,0,0,0);    
+                    let expiryTime = new Date(card.expiryDt).setHours(0,0,0,0);
+                    return currentTime <= expiryTime; 
+                }
+                return true;
+            })
+            writeJson(cardPath, cardData)
+            .then(() => resolve("Success"))
+            .catch(err => reject(err));
+        })
+        .catch(err => reject(err));
+    })
+}
+
+function isFromLastDay(startedAt) {
+    let lastStartedTime = new Date(startedAt).getTime();
+    let currentTime = new Date().getTime();
+    return ((currentTime - lastStartedTime) > (INACTIVE_TIME || 12 * 60 * 60 * 1000));
+}
+
+module.exports = {addANewCard, deleteACard, updateCard, shareCard, autoCleanData};

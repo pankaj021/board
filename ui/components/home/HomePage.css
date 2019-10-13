@@ -37,14 +37,14 @@
     margin: 8px;
     align-items: center;
 }
-.board-item a{
+.board-item a, .card-content a{
     text-decoration: none;
     color: #4b70ac;
     font-weight: 500;
     cursor: pointer;
     max-width: 250px;
 }
-.board-item a:hover{
+.board-item a:hover, .card-content a:hover{
     text-decoration: underline;
 }
 .create-board-box{

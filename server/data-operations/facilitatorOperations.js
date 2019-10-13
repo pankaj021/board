@@ -72,7 +72,32 @@ function updateFacilitatorList({presenters, notPresentFacilitator, boardId}) {
     }) 
 }
 
+function getNextFacilitatorList(board) {
+    const memberPath = __dirname + '/../../data/members.json';
+    return new Promise((resolve, reject) => {
+        readJson(memberPath)
+        .then(membersData => {
+            if(membersData && membersData.length){
+                let members = membersData.filter(member => member.boardId === board._id)
+                members.forEach( facilitator => {
+                    facilitator.isPresent = true;  // everyone is present for next event;
+                    const currentPresenter = board.facilitators.filter(currentPresenter => currentPresenter._id === facilitator._id);
+                    if(currentPresenter.length) facilitator.frequency += 1;
+                })
+                let newList = getFacilitatorList([], members, 2);
+                writeJson(memberPath, membersData)
+                .then(() => resolve(newList))
+                .catch(err => reject(err))
+            } else {
+                throw new Error("Internal server error, Next Facilitator.")
+            }
+        })
+        .catch(err => reject(err))
+    })
+}
+
 module.exports = {
     getFacilitatorList,
-    updateFacilitatorList
+    updateFacilitatorList,
+    getNextFacilitatorList
 }

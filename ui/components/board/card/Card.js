@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import shortid from 'shortid';
+import Linkify from 'react-linkify'
 import * as socketActions from '../../../actions/socket/socketActions';
 import * as cardActions from '../../../actions/sync/cardActions';
 import {TextArea, DropDown, Button} from '../../../pattern-library';
@@ -72,7 +73,9 @@ class Card extends Component{
                         <span className='pd-lr-5 f-500'>:</span>
                     </div>
                     <span className='card-content'>
-                        <span className='card-quote'>“</span>{`${firstLetterUpperCase(content)}`}<span className='card-quote'>”</span>
+                        <Linkify>
+                            <span className='card-quote'>“</span>{`${firstLetterUpperCase(content)}`}<span className='card-quote'>”</span>
+                        </Linkify>
                     </span>
                 </div>
                 <div className='card-extras'>
