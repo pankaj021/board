@@ -11,6 +11,7 @@ import Loader from './loader/Loader';
 import TypingIcon from './typing-icon/TypingIcon';
 import Tab from './tab/Tab';
 import TabItem from './tab/TabItem';
+import Icon from './icon/Icon';
 import './index.css';
 
 module.exports = {
@@ -26,5 +27,6 @@ module.exports = {
     Loader,
     TypingIcon,
     Tab,
-    TabItem
+    TabItem,
+    Icon
 }

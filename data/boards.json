@@ -50,22 +50,5 @@
       "startedAt": null,
       "isActive": false,
       "createTS": "2019-10-13T10:32:10.401Z"
-   },
-   {
-      "_id": "rMYJlmbGR63822120",
-      "boardName": "board-issues",
-      "boardType": "Normal",
-      "isPublic": true,
-      "facilitators": [],
-      "columns": [
-         "hqkWVoQ1Ta87359266",
-         "f_NIh4CyJC81444641",
-         "d-QRLVFzIZ37654167"
-      ],
-      "avgTime": 0,
-      "frequency": 0,
-      "startedAt": null,
-      "isActive": false,
-      "createTS": "2019-10-13T10:54:56.642Z"
    }
 ]

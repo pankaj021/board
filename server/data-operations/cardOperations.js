@@ -93,41 +93,55 @@ function updateCard(card) {
 
 function shareCard(reqBody) {
     let {selectedBoard, card, board} = reqBody;
-    selectedBoard = selectedBoard.slice(0, 1);  // The feature is partially available. 
     return new Promise((resolve, reject) => {
-        let columnList = [];
+        let columnIds = [];
+        let cardList = [];
+        const cardPath = __dirname + '/../../data/cards.json';
+        const columnPath = __dirname + '/../../data/column.json';
         selectedBoard.map(sBoard => {
-            let columnIndex =  sBoard.boardType === board.boardType && board.columnIndex ? board.columnIndex : 0;
-            columnList.push(sBoard.columns[columnIndex]);
+            let columnIndex =  (sBoard.boardType === board.boardType && board.columnIndex) ? board.columnIndex : 0;
+            let columnId = sBoard.columns[columnIndex];
+            let newCard = Card({...card, columnId});            
+            columnIds.push(columnId);
+            cardList.push(newCard);
         });
-        let promiseArr = columnList.map( columnId => {
-            return addANewCard({
-                ...card,
-                columnId
-            })
-        })
-        if(promiseArr.length) {
-            Promise.all(promiseArr)
-            .then((response) => resolve(response))
+        Promise.all([
+            readJson(cardPath),
+            readJson(columnPath)
+        ]).then(data => {
+            let cardData = data[0] ? data[0] : [];
+            let columnData =  data[1] ? data[1] : [];
+            cardData = cardList.concat(cardData);
+            columnData = columnData.map(column => {
+                let index = columnIds.indexOf(column._id);
+                if(index !== -1) column.cards = [cardList[index]._id].concat(column.cards);
+                return column;
+            });
+            Promise.all([
+                writeJson(cardPath, cardData),
+                writeJson(columnPath, columnData)
+            ])
+            .then(() => resolve(cardList))
             .catch(err => reject(err));
-        } else {
-            throw new Error("Internal server error, we were not able to share.");
-        }
-        
+        })
+        .catch(err => reject(err));
     })
 }
 
 function autoCleanData({boardName}) {
     const boardPath = __dirname + '/../../data/boards.json';
     const cardPath = __dirname + '/../../data/cards.json';
+    const memberPath = __dirname + '/../../data/members.json';
     return new Promise((resolve, reject) => {
         Promise.all([
             readJson(boardPath),
-            readJson(cardPath)
+            readJson(cardPath),
+            readJson(memberPath)
         ])
         .then((data) => {
             let boardData = data[0] ? data[0] : [];
             let cardData = data[1] ? data[1] : [];
+            let memberData = data[2] ? data[2] : [];
             let targetBoard = {};
             let targetColumns = [];
             for (let index = 0; index < boardData.length; index++) {
@@ -147,8 +161,18 @@ function autoCleanData({boardName}) {
                     return currentTime <= expiryTime; 
                 }
                 return true;
-            })
-            writeJson(cardPath, cardData)
+            });
+
+            // if(isFromLastDay(targetBoard.startedAt)){
+            //     memberData.forEach(member => {
+            //         if(member.boardId === targetBoard._id) member.isPresent = true;  // reset not present list.
+            //     })
+            // }
+
+            Promise.all([
+                writeJson(cardPath, cardData),
+                writeJson(memberPath, memberData)
+            ])
             .then(() => resolve("Success"))
             .catch(err => reject(err));
         })

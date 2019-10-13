@@ -28,6 +28,10 @@
       "boardId": "UeSAGl3Ax12801912",
       "columnName": "In Progress",
       "cards": [
+         "AVIeIEOsR84535204",
+         "z8Ct31u0s99150771",
+         "bhK7LqBEh34841149",
+         "gkO1oHlww83794080",
          "VjyxjfmV564518548"
       ]
    },
@@ -46,6 +50,7 @@
       "boardId": "UeSAGl3Ax12801912",
       "columnName": "Completed",
       "cards": [
+         "--j7BFyjn84754369",
          "GKtrd7nWM87607027",
          "ymbjr963s26466753",
          "WLuSQd4J739310495",
@@ -72,24 +77,6 @@
       "_id": "clrRPuHQdE34038455",
       "boardId": "3RUaZvXyd35760368",
       "columnName": "Events",
-      "cards": []
-   },
-   {
-      "_id": "hqkWVoQ1Ta87359266",
-      "boardId": "rMYJlmbGR63822120",
-      "columnName": "In Progress",
-      "cards": []
-   },
-   {
-      "_id": "f_NIh4CyJC81444641",
-      "boardId": "rMYJlmbGR63822120",
-      "columnName": "Backlog",
-      "cards": []
-   },
-   {
-      "_id": "d-QRLVFzIZ37654167",
-      "boardId": "rMYJlmbGR63822120",
-      "columnName": "Completed",
       "cards": []
    }
 ]

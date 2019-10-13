@@ -1,6 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import Facilators from './Facilitators';
+import {Icon} from '../../pattern-library';
 import Timer from './Timer';
 import AdvanceSetting from '../settings/AdvanceSetting';
 import './Header.css';
@@ -22,7 +23,7 @@ class Header extends React.Component {
                     <div className='d-flex h-left-wrp'>
                         <div className=' d-flex align-ct h-logo-wrp h-font mg-r-48'>
                             <a className='d-flex align-ct' href='/'>
-                                <img className='h-logo' src='/icons/favicon.ico' alt='CompoZed'/>
+                                <Icon className='h-logo' src='/icons/favicon.ico' alt='CompoZed'/>
                             </a>
                             <span>{boardName || 'X-Board'}</span>
                         </div>
@@ -30,7 +31,7 @@ class Header extends React.Component {
                         {showHeaderItems && <Timer />}
                     </div>
                     {boardName && <div className='setting-wrp'>
-                        <img src='/icons/setting.svg' alt='Settings' onClick={this.openSettingModal}/>
+                        <Icon src='/icons/setting.svg' alt='Settings' onClick={this.openSettingModal} title='Setting'/>
                         <AdvanceSetting isActive={this.state.settingActive && boardName}/>
                     </div>}
                 </div>

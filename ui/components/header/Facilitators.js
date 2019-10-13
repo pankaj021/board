@@ -1,5 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
+import {Icon} from '../../pattern-library';
 import {notPresent} from '../../actions/socket/socketActions';
 import shortid from 'shortid';
 
@@ -12,8 +13,8 @@ class Facilitators extends React.Component{
             <div key={randomIdGenerator()} className='presenter d-flex align-ct'>
                 {index ? <span style={{margin: '0px 8px'}}>,</span> : null}
                 <span className='mg-r-8'>{presenter.nickName || "Somebody"}</span>
-                <img 
-                    className='f-next-i' src='/icons/next.svg' alt='next' title="Next"
+                <Icon 
+                    className='f-next-i' src='/icons/next.svg' alt='next' title="Not Present"
                     onClick={ () => notPresent({
                         presenters,
                         notPresentFacilitator: presenter,
@@ -30,7 +31,7 @@ class Facilitators extends React.Component{
         if(presenters && presenters.length === 2) {
             return (
                 <div className='facilitators mg-r-48'>
-                    <img className={imgClass} src={imgPath} alt='Facilitators'/>
+                    <Icon className={imgClass} src={imgPath} alt='Facilitators' title='Facilitators'/>
                     <span className='facilitators-title'>Facilitators</span>
                     <span style={{margin: '0px 8px'}}>:</span>
                     <div className='presenters d-flex align-ct'>{this.getPresentersList()}</div>

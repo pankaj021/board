@@ -14,7 +14,7 @@ function getFilteredBoard(publicBoards) {
                         {/* <span className='mg-l-10'>{`(${board.boardType.toLowerCase()} )`}</span> */}
                     </div>
                     <div className='d-flex align-ct'>
-                        <img className='member-count-i' src='/icons/users.svg' alt='members'/>
+                        <img className='member-count-i' src='/icons/users.svg' alt='members' title='members'/>
                         <span>({board.noOfMembers})</span>
                     </div>
                 </li>

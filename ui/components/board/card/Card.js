@@ -4,7 +4,7 @@ import shortid from 'shortid';
 import Linkify from 'react-linkify'
 import * as socketActions from '../../../actions/socket/socketActions';
 import * as cardActions from '../../../actions/sync/cardActions';
-import {TextArea, DropDown, Button} from '../../../pattern-library';
+import {Icon} from '../../../pattern-library';
 import ShareList from './ShareList';
 import './Card.css';
 
@@ -54,15 +54,15 @@ class Card extends Component{
                     <div className='add-info'>{`${addedDtTxt}` || ""}</div>
                     <div className='d-flex align-ct'>
                         <span className='share-it'>
-                            <img className='card-icon' src='/icons/share-new1.svg' title='share' alt='share'
+                            <Icon className='card-icon' src='/icons/share-new1.svg' title='share card' alt='share'
                                 onClick={this.onClickShare}
                             />
                             {<ShareList key={_id} card={{_id, addedBy, content, expiryDt, addedDt, columnId}} isActive={isActive}/>}
                         </span>
-                        <img className='mg-l-10 card-icon' src='/icons/edit.svg' title='edit' alt='edit'
+                        <Icon className='mg-l-10 card-icon' src='/icons/edit.svg' title='edit card' alt='edit'
                             onClick={() => this.props.editCard(this.state)}
                         />
-                        <img className='mg-l-10 card-icon' src='/icons/delete.svg' title='delete' alt='delete' 
+                        <Icon className='mg-l-10 card-icon' src='/icons/delete.svg' title='delete card' alt='delete' 
                             onClick={() => this.props.deleteCard(this.state)}
                         />
                     </div>

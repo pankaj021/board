@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
-import {TypingIcon} from '../../../pattern-library';
+import {TypingIcon, Icon} from '../../../pattern-library';
 import {getCardsByColumnId} from './helper';
 import "./Column.css";
 
@@ -14,7 +14,7 @@ const ColumnHead = ({headerCol, columnName, columnId, cards, typingData}) => {
                 <div>{` (${filteredCards.length}) `}</div>
             </div>
             <TypingIcon isTyping={isTyping} duration={3000}/>
-            <img className='delete-icon' src='/icons/delete1.svg' title='Delete Column' alt='delete'/>
+            <Icon className='delete-icon' src='/icons/delete1.svg' title='Delete Column not available yet.' alt='delete'/>
         </div>
     )
 }
