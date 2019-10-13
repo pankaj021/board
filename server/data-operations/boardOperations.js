@@ -134,7 +134,7 @@ function loadAllPublicBoards() {
                     if(board._id === member.boardId) return ++board.noOfMembers;
                 }
             });
-            resolve(filteredData);
+            resolve(filteredData.sort((a, b) => b.noOfMembers - a.noOfMembers));
         })
         .catch(reject);
     })

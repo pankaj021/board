@@ -57,6 +57,7 @@ class ColumnInput extends Component{
         let {content, addedBy, expiryDt, assignedTo} = this.state;
         let btnText = this.props.btnText || 'Add';
         let isBoardRetro = initialBoardData.boardType === 'Retro';
+        let isInterestings = initialBoardData.boardType === 'Standup' && initialBoardData.columns[1]._id === this.props.columnId;
         let retroClass = isBoardRetro ? ' retro-style ' : ""; 
         return(
             <div className='column-input'>
@@ -95,7 +96,7 @@ class ColumnInput extends Component{
                             ddOptions={getDDOptions(this.props.members)}
                             value={assignedTo || ""}
                         /> */}
-                        {this.props.columnName !== 'Interesting' && <DatePicker 
+                        {!isInterestings && <DatePicker 
                             label='Expires On'
                             id='expiryDate'
                             dateRef={ el => this.expiryNode = el } 

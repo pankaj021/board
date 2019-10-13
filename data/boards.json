@@ -1,344 +1,71 @@
 [
    {
-      "_id": "FMDvpND-v74727119",
-      "boardName": "test",
-      "boardType": "Standup",
-      "isPublic": true,
-      "isActive": false,
-      "facilitators": [
-         {
-            "_id": "76-4kY53r67828115",
-            "boardId": "FMDvpND-v74727119",
-            "fullName": "Pankaj Maurya",
-            "nickName": "Pankaj",
-            "isPresent": true,
-            "frequency": 11,
-            "createTS": "2019-10-06T17:33:27.993Z"
-         },
-         {
-            "_id": "QZHjovxKO86089808",
-            "boardId": "FMDvpND-v74727119",
-            "fullName": "Thirupathi Muniswami",
-            "nickName": "Thirupathi",
-            "isPresent": true,
-            "frequency": 11,
-            "createTS": "2019-10-06T17:33:47.585Z"
-         }
-      ],
-      "columns": [
-         "KZ5DA751pA85049672",
-         "lQl8Bh7cgh70067723",
-         "1IskoAp7CH75705136"
-      ],
-      "avgTime": 0,
-      "frequency": 129,
-      "ceateTS": "2019-09-22T08:06:04.140Z",
-      "startedAt": "2019-10-13T10:03:47.263Z"
-   },
-   {
-      "_id": "MI3LjC0tq7933569",
-      "boardName": "test-retro",
+      "_id": "3G_TIQzt555629162",
+      "boardName": "board-feedback",
       "boardType": "Retro",
       "isPublic": true,
       "facilitators": [],
       "columns": [
-         "IWEXOvPeUT66677065",
-         "2fH6e-7uLj5934661",
-         "vPUNg8q8p816200033",
-         "Aa3wFDntPh27638401"
-      ],
-      "avgTime": 0,
-      "frequency": 0,
-      "ceateTS": "2019-09-22T08:08:11.941Z"
-   },
-   {
-      "_id": "557nsvuN525453120",
-      "boardName": "iq",
-      "boardType": "Standup",
-      "isPublic": true,
-      "facilitators": [],
-      "columns": [
-         "qkf3lHTVAJ24804640",
-         "LTavI0Vtlg92783178",
-         "23KZoKNUrK18275267"
-      ],
-      "avgTime": 0,
-      "frequency": 2,
-      "ceateTS": "2019-09-22T11:34:53.082Z",
-      "startedAt": "2019-10-12T17:59:49.802Z",
-      "isActive": false
-   },
-   {
-      "_id": "XQFUXgrCV12358273",
-      "boardName": "iq-retro",
-      "boardType": "Standup",
-      "isPublic": false,
-      "facilitators": [],
-      "columns": [
-         "NM0pT0mVQm51845398",
-         "gzttTd2RyE55460427",
-         "6i0_qsshxx76223519"
-      ],
-      "avgTime": 0,
-      "frequency": 0,
-      "ceateTS": "2019-09-22T11:53:28.207Z"
-   },
-   {
-      "_id": "VI95uPhmb36678830",
-      "boardName": "IQ-stand-up",
-      "boardType": "Standup",
-      "isPublic": false,
-      "facilitators": [],
-      "columns": [
-         "5RXh9jZBUH77118991",
-         "xOvTCI1M7e36853266",
-         "TcNntkn7h_27891548"
-      ],
-      "avgTime": 0,
-      "frequency": 0,
-      "ceateTS": "2019-09-22T12:01:02.793Z"
-   },
-   {
-      "_id": "I7c43DzRY17617909",
-      "boardName": "iq-testing",
-      "boardType": "Normal",
-      "isPublic": true,
-      "facilitators": [],
-      "columns": [
-         "e-bhJzdG4997120463",
-         "9Ct9ceiO2E71837985",
-         "5MknOLBQGF59523831",
-         "h1hApjxRtm26846322"
-      ],
-      "avgTime": 0,
-      "frequency": 0,
-      "ceateTS": "2019-09-22T12:57:54.156Z"
-   },
-   {
-      "_id": "0TdO-QJKB87962562",
-      "boardName": "test-board",
-      "boardType": "Standup",
-      "isPublic": false,
-      "facilitators": [],
-      "columns": [
-         "d0ALPdz67g19187529",
-         "u_c3AInOOU82979196",
-         "YkaQxryzgn85133508"
-      ],
-      "avgTime": 0,
-      "frequency": 0,
-      "ceateTS": "2019-09-22T15:41:23.867Z"
-   },
-   {
-      "_id": "pS5KMxWNN48767242",
-      "boardName": "test-more",
-      "boardType": "Standup",
-      "isPublic": false,
-      "facilitators": [],
-      "columns": [
-         "QZFNkTTMAb18665692",
-         "VDLoB4BWXf78449799",
-         "mOnr5rd0R423945890"
-      ],
-      "avgTime": 0,
-      "frequency": 0,
-      "ceateTS": "2019-09-22T17:15:17.902Z"
-   },
-   {
-      "_id": "cnwlj8H9y51739557",
-      "boardName": "arity",
-      "boardType": "Normal",
-      "isPublic": true,
-      "facilitators": [],
-      "columns": [
-         "xeOSDhZHOq96608941",
-         "ZhoQJRfBYS39726817",
-         "xM1MVeI4Ff20303789",
-         "4sEu1oEKuq73026290"
-      ],
-      "avgTime": 0,
-      "frequency": 0,
-      "ceateTS": "2019-09-28T11:30:29.206Z"
-   },
-   {
-      "_id": "P9pasHq6W23235135",
-      "boardName": "airty-iq",
-      "boardType": "Standup",
-      "isPublic": false,
-      "facilitators": [],
-      "columns": [
-         "U7kDnPEzZL18124780",
-         "Rv0LadI-Pl49440749",
-         "xIe_HHbNyy66067239"
-      ],
-      "avgTime": 0,
-      "frequency": 0,
-      "ceateTS": "2019-09-28T12:02:15.763Z"
-   },
-   {
-      "_id": "kqqsZ7kQh82485776",
-      "boardName": "test-aur",
-      "boardType": "Standup",
-      "isPublic": false,
-      "facilitators": [],
-      "columns": [
-         "dOr83s0JcF7194756",
-         "aKwkB55azr11251118",
-         "QsK7V25w3M86785390"
-      ],
-      "avgTime": 0,
-      "frequency": 0,
-      "ceateTS": "2019-09-29T13:09:28.081Z"
-   },
-   {
-      "_id": "T1Ch8tfCG68963169",
-      "boardName": "test-ha",
-      "boardType": "Retro",
-      "isPublic": true,
-      "facilitators": [],
-      "columns": [
-         "WFpvynmBRi10561672",
-         "SPNSV1D2wJ93063862",
-         "x-NWXVAtib57452301",
-         "U-shNss4I360277414"
-      ],
-      "avgTime": 0,
-      "frequency": 0,
-      "ceateTS": "2019-10-02T19:12:44.819Z"
-   },
-   {
-      "_id": "yOCSlLvqn61449153",
-      "boardName": "try",
-      "boardType": "Normal",
-      "isPublic": true,
-      "facilitators": [
-         {
-            "_id": "KTou9Nqf541866829",
-            "boardId": "yOCSlLvqn61449153",
-            "fullName": "Jhelu mehre",
-            "nickName": "Jhelu",
-            "isPresent": true,
-            "frequency": 0,
-            "createTS": "2019-10-07T17:57:41.430Z"
-         },
-         "Nobody"
-      ],
-      "columns": [
-         "TwKRILnYBg53655910",
-         "WdCYGYqdXf11012171",
-         "w75XzB-j3r16576284",
-         "9uYLWwMtkk98172939"
-      ],
-      "avgTime": 0,
-      "frequency": 0,
-      "ceateTS": "2019-10-02T19:20:01.067Z"
-   },
-   {
-      "_id": "P0o0zXZMX96175479",
-      "boardName": "try-it",
-      "boardType": "Standup",
-      "isPublic": false,
-      "facilitators": [],
-      "columns": [
-         "XsYBPHgbHS19181322",
-         "iQlFI-sA1r53126280",
-         "pnZFnRo0V362475726"
-      ],
-      "avgTime": 0,
-      "frequency": 0,
-      "ceateTS": "2019-10-02T19:22:14.368Z"
-   },
-   {
-      "_id": "E4yjI4DAY33794025",
-      "boardName": "asd",
-      "boardType": "Retro",
-      "isPublic": true,
-      "facilitators": [],
-      "columns": [
-         "zYjSjnYH26924295",
-         "3RJl7kaRQc50835310",
-         "uTwISd2B2x58726861",
-         "5VsH2Rk7Wg41905420"
-      ],
-      "avgTime": 0,
-      "frequency": 0,
-      "ceateTS": "2019-10-02T19:24:02.838Z"
-   },
-   {
-      "_id": "t3WOXmtiW19443700",
-      "boardName": "hi",
-      "boardType": "Standup",
-      "isPublic": false,
-      "facilitators": [],
-      "columns": [
-         "acRgBiKb-Q78891279",
-         "I4JCqXYMxM97453483",
-         "eylmeTRJa574507373"
-      ],
-      "avgTime": 0,
-      "frequency": 0,
-      "ceateTS": "2019-10-02T19:26:38.005Z"
-   },
-   {
-      "_id": "IcbZHoDDN16436507",
-      "boardName": "jsdfzmxcn",
-      "boardType": "Standup",
-      "isPublic": false,
-      "facilitators": [],
-      "columns": [
-         "YwfuYCjwjO69751016",
-         "ExFDnnhIsP73160538",
-         "zS2FM0xLVc90066071"
-      ],
-      "avgTime": 0,
-      "frequency": 0,
-      "ceateTS": "2019-10-02T19:34:56.360Z"
-   },
-   {
-      "_id": "ipdIN6SCq18498055",
-      "boardName": "issues",
-      "boardType": "Standup",
-      "isPublic": true,
-      "facilitators": [],
-      "columns": [
-         "mjd168rvwM38970393",
-         "OdbCr-BrWs43841532",
-         "Smu0bDvJCs96724620"
-      ],
-      "avgTime": 0,
-      "frequency": 0,
-      "ceateTS": "2019-10-02T19:38:53.038Z"
-   },
-   {
-      "_id": "iCMMU5J9O98117906",
-      "boardName": "new-board",
-      "boardType": "Standup",
-      "isPublic": true,
-      "facilitators": [],
-      "columns": [
-         "9yXWUHB9uv8960234",
-         "uiid5H9YIy76531392",
-         "GS2ke9SjAn36225365"
-      ],
-      "avgTime": 0,
-      "frequency": 0,
-      "ceateTS": "2019-10-06T17:38:40.533Z"
-   },
-   {
-      "_id": "UfHRmEBR41664194",
-      "boardName": "tracker-board",
-      "boardType": "Normal",
-      "isPublic": true,
-      "facilitators": [],
-      "columns": [
-         "vmJSRS4---75212982",
-         "QeKoinykfa16348525",
-         "QktgUgL2HF5260806"
+         "9ewq_0B9XT42005293",
+         "xgOjeiLbvT21971004",
+         "nXRdG_ud0318953865",
+         "IF7252uD-z47655922"
       ],
       "avgTime": 0,
       "frequency": 0,
       "startedAt": null,
       "isActive": false,
-      "createTS": "2019-10-12T18:04:31.555Z"
+      "createTS": "2019-10-13T10:26:58.587Z"
+   },
+   {
+      "_id": "UeSAGl3Ax12801912",
+      "boardName": "board-tracker",
+      "boardType": "Normal",
+      "isPublic": true,
+      "facilitators": [],
+      "columns": [
+         "Ikjx8J71pO50850581",
+         "uW62_FnPbR98721402",
+         "zV1AQ57ah153420877"
+      ],
+      "avgTime": 0,
+      "frequency": 0,
+      "startedAt": null,
+      "isActive": false,
+      "createTS": "2019-10-13T10:28:56.318Z"
+   },
+   {
+      "_id": "3RUaZvXyd35760368",
+      "boardName": "lab-standup",
+      "boardType": "Standup",
+      "isPublic": true,
+      "facilitators": [],
+      "columns": [
+         "RDpv5u65eD49578292",
+         "Vi_h2YpMst18928098",
+         "clrRPuHQdE34038455"
+      ],
+      "avgTime": 0,
+      "frequency": 0,
+      "startedAt": null,
+      "isActive": false,
+      "createTS": "2019-10-13T10:32:10.401Z"
+   },
+   {
+      "_id": "rMYJlmbGR63822120",
+      "boardName": "board-issues",
+      "boardType": "Normal",
+      "isPublic": true,
+      "facilitators": [],
+      "columns": [
+         "hqkWVoQ1Ta87359266",
+         "f_NIh4CyJC81444641",
+         "d-QRLVFzIZ37654167"
+      ],
+      "avgTime": 0,
+      "frequency": 0,
+      "startedAt": null,
+      "isActive": false,
+      "createTS": "2019-10-13T10:54:56.642Z"
    }
 ]
