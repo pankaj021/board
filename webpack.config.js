@@ -10,7 +10,7 @@ module.exports = {
         path: PATHS.build,
         filename: 'bundle.js',
     },
-    watch: true,
+    watch: false,
     devtool: 'inline-source-map',
     module: {
         rules: [
