@@ -138,9 +138,9 @@ function autoCleanData({boardName}) {
                 }
             }
             cardData = cardData.filter(card => {
-                if(targetBoard.boardType === 'Standup' && card.columnId === targetColumns[1] && isFromLastDay(targetBoard.startedAt)){   // Temporary code, for auto deleting Interestings;
-                    return false;
-                }
+                // if(targetBoard.boardType === 'Standup' && card.columnId === targetColumns[1] && isFromLastDay(targetBoard.startedAt)){   // Temporary code, for auto deleting Interestings;
+                //     return false;
+                // }
                 if(targetColumns.includes(card.columnId) && card.expiryDt){
                     let currentTime = new Date().setHours(0,0,0,0);    
                     let expiryTime = new Date(card.expiryDt).setHours(0,0,0,0);
